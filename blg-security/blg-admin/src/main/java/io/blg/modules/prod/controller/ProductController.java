@@ -1,13 +1,7 @@
 package io.blg.modules.prod.controller;
 
-import com.google.gson.Gson;
-import io.blg.common.utils.Constant;
 import io.blg.common.utils.R;
 import io.blg.common.validator.ValidatorUtils;
-import io.blg.common.validator.group.AliyunGroup;
-import io.blg.common.validator.group.QcloudGroup;
-import io.blg.common.validator.group.QiniuGroup;
-import io.blg.modules.oss.cloud.CloudStorageConfig;
 import io.blg.modules.prod.entity.Product;
 import io.blg.modules.sys.controller.AbstractController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;

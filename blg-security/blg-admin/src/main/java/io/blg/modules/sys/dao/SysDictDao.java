@@ -16,8 +16,8 @@
 
 package io.blg.modules.sys.dao;
 
-import io.blg.modules.sys.entity.SysDictEntity;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import io.blg.modules.sys.entity.SysDictEntity;
 
 /**
  * 数据字典

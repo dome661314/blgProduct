@@ -17,15 +17,12 @@
 package io.blg.common.aspect;
 
 import com.google.gson.Gson;
-
-
 import io.blg.common.annotation.SysLog;
+import io.blg.common.utils.HttpContextUtils;
+import io.blg.common.utils.IPUtils;
 import io.blg.modules.sys.entity.SysLogEntity;
 import io.blg.modules.sys.entity.SysUserEntity;
 import io.blg.modules.sys.service.SysLogService;
-import io.blg.common.utils.HttpContextUtils;
-import io.blg.common.utils.IPUtils;
-
 import org.apache.shiro.SecurityUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
