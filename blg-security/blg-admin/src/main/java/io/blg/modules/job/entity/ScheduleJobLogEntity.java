@@ -26,7 +26,7 @@ import java.util.Date;
 /**
  * 定时任务日志
  *
- * @author Mark sunlightcs@gmail.com
+ * @author zhengWei
  * @since 1.2.0 2016-11-28
  */
 @TableName("schedule_job_log")

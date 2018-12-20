@@ -26,7 +26,7 @@ import java.util.List;
  * 角色与菜单对应关系
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2016年9月18日 上午9:42:30
  */
 public interface SysRoleMenuService extends IService<SysRoleMenuEntity> {

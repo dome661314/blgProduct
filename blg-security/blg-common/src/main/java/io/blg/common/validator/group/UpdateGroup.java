@@ -19,7 +19,7 @@ package io.blg.common.validator.group;
 /**
  * 更新数据 Group
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-15 21:21
  */
 

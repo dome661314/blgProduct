@@ -29,7 +29,7 @@ import java.util.Date;
  * 用户Token
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-23 15:22:07
  */
 @TableName("tb_token")

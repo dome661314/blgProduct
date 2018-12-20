@@ -19,7 +19,7 @@ package io.blg.common.utils;
 /**
  * 系统参数相关Key
  *
- * @author Mark sunlightcs@gmail.com
+ * @author zhengWei
  * @since 1.2.0 2018-12-26
  */
 public class ConfigConstant {

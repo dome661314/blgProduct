@@ -24,7 +24,7 @@ import javax.validation.constraints.NotBlank;
 /**
  * 登录表单
  *
- * @author Mark sunlightcs@gmail.com
+ * @author zhengWei
  * @since 3.1.0 2018-01-25
  */
 @ApiModel(value = "登录表单")

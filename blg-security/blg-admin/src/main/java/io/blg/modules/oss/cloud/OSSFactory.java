@@ -25,7 +25,7 @@ import io.blg.modules.sys.service.SysConfigService;
 /**
  * 文件上传Factory
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-26 10:18
  */
 public final class OSSFactory {

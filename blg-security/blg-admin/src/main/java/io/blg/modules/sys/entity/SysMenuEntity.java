@@ -28,7 +28,7 @@ import java.util.List;
  * 菜单管理
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2016年9月18日 上午9:26:39
  */
 @TableName("sys_menu")

@@ -29,7 +29,7 @@ import org.springframework.stereotype.Component;
  * Redis切面处理类
  *
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2017-07-17 23:30
  */
 @Aspect

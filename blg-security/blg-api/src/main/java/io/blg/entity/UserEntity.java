@@ -30,7 +30,7 @@ import java.util.Date;
  * 用户
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-23 15:22:06
  */
 @TableName("tb_user")

@@ -20,7 +20,7 @@ import java.util.Date;
 /**
  * 注册接口
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-26 17:27
  */
 @RestController

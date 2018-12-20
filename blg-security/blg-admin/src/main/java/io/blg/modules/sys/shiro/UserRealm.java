@@ -44,7 +44,7 @@ import org.springframework.stereotype.Component;
  * 认证
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2016年11月10日 上午11:55:49
  */
 @Component

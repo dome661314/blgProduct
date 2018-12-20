@@ -19,7 +19,7 @@ package io.blg.common.validator.group;
 /**
  * 新增数据 Group
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-16 0:04
  */
 public interface AddGroup {

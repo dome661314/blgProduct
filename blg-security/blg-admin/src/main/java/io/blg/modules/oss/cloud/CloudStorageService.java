@@ -26,7 +26,7 @@ import java.util.UUID;
 /**
  * 云存储(支持七牛、阿里云、腾讯云、又拍云)
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-25 14:58
  */
 public abstract class CloudStorageService {

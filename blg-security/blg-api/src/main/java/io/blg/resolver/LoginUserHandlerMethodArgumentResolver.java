@@ -32,7 +32,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 /**
  * 有@LoginUser注解的方法参数，注入当前登录用户
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-23 22:02
  */
 @Component

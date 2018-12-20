@@ -24,7 +24,7 @@ import io.blg.modules.sys.entity.SysLogEntity;
  * 系统日志
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-08 10:40:56
  */
 public interface SysLogDao extends BaseMapper<SysLogEntity> {

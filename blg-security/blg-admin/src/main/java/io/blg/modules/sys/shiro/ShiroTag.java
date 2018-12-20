@@ -24,7 +24,7 @@ import org.springframework.stereotype.Component;
  * Shiro权限标签
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2016年12月3日 下午11:32:47
  */
 @Component

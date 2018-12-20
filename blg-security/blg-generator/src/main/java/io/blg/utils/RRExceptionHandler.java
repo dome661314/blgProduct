@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * 异常处理器
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2016年10月27日 下午10:16:19
  */
 @RestControllerAdvice

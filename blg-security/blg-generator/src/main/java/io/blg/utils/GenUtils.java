@@ -39,7 +39,7 @@ import java.util.zip.ZipOutputStream;
  * 代码生成器   工具类
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2016年12月19日 下午11:40:24
  */
 public class GenUtils {

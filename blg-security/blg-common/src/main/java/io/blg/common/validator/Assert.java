@@ -22,7 +22,7 @@ import org.apache.commons.lang.StringUtils;
 /**
  * 数据校验
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-23 15:50
  */
 public abstract class Assert {

@@ -30,7 +30,7 @@ import java.io.InputStream;
 /**
  * 七牛云存储
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-25 15:41
  */
 public class QiniuCloudStorageService extends CloudStorageService {

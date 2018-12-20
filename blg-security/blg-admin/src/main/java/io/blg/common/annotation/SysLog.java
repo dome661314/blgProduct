@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
 /**
  * 系统日志注解
  *
- * @author Mark sunlightcs@gmail.com
+ * @author zhengWei
  * @since 1.3.0 2018-12-08
  */
 @Target(ElementType.METHOD)

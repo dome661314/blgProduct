@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
  * 登录用户信息
  *
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2018-12-23 20:39
  */
 @Target(ElementType.PARAMETER)

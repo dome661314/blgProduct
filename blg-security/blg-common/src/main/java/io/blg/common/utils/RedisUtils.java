@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
  * Redis工具类
  *
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2017-07-17 21:12
  */
 @Component

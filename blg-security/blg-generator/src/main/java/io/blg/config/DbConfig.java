@@ -27,7 +27,7 @@ import org.springframework.context.annotation.Primary;
 /**
  * 数据库配置
  *
- * @author Mark sunlightcs@gmail.com
+ * @author zhengWei
  * @since 2018-07-24
  */
 @Configuration

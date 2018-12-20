@@ -19,7 +19,7 @@ package io.blg.common.validator.group;
 /**
  * 腾讯云
  *
- * @author Mark sunlightcs@gmail.com
+ * @author zhengWei
  * @since 2.0.0 2018-12-28
  */
 public interface QcloudGroup {

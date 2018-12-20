@@ -27,7 +27,7 @@ import java.util.Map;
  * 部门管理
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2017-06-20 15:23:47
  */
 public interface SysDeptService extends IService<SysDeptEntity> {

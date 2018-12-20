@@ -19,7 +19,7 @@ package io.blg.common.utils;
 /**
  * Redis所有Keys
  *
- * @author Mark sunlightcs@gmail.com
+ * @author zhengWei
  * @since 3.0.0 2017-07-18
  */
 public class RedisKeys {

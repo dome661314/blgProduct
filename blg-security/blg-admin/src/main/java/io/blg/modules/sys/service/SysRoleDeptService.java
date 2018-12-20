@@ -26,7 +26,7 @@ import java.util.List;
  * 角色与部门对应关系
  * 
  * @author zhengwei
- * @email sunlightcs@gmail.com
+
  * @date 2017年6月21日 23:42:30
  */
 public interface SysRoleDeptService extends IService<SysRoleDeptEntity> {
