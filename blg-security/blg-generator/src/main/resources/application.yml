@@ -10,23 +10,23 @@ spring:
     #MySQL配置
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blg_security?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: blg
-    password: 123456
+    username: root
+    password: dome661314
     #oracle配置
 #    driverClassName: oracle.jdbc.OracleDriver
 #    url: jdbc:oracle:thin:@192.168.10.10:1521:helowin
-#    username: blg
-#    password: 123456
+#    username: root
+#    password: dome661314
     #SQLServer配置
 #    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
 #    url: jdbc:sqlserver://192.168.10.10:1433;DatabaseName=blg_security
 #    username: sa
-#    password: 123456
+#    password: dome661314
     #PostgreSQL配置
 #    driverClassName: org.postgresql.Driver
 #    url: jdbc:postgresql://192.168.10.10:5432/blg_security
 #    username: postgres
-#    password: 123456
+#    password: dome661314
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
