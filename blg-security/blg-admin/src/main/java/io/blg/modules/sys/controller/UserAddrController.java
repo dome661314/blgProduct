@@ -4,8 +4,6 @@ import io.blg.common.annotation.SysLog;
 import io.blg.common.utils.PageUtils;
 import io.blg.common.utils.R;
 import io.blg.common.validator.ValidatorUtils;
-import io.blg.modules.prod.entity.ProductEntity;
-import io.blg.modules.prod.service.ProductService;
 import io.blg.modules.sys.entity.UserAddressEntity;
 import io.blg.modules.sys.service.UserAddressService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
