@@ -49,6 +49,5 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, ProductEntity> i
     public void update(ProductEntity product) {
         product.setUpdateDate(new Date());
         this.updateById(product);
-
     }
 }

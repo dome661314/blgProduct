@@ -100,7 +100,6 @@ public class ProductController extends AbstractController {
     @RequiresPermissions("blg:prod:info")
     public R info(@PathVariable("id") Long id){
         ProductEntity prod = productService.selectById(id);
-
         return R.ok().put("prod", prod);
     }
 

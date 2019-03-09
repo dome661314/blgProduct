@@ -1,9 +1,9 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: baseURL + 'blg/prod/list',
+        url: baseURL + 'sys/userAddress/list',
         datatype: "json",
         colModel: [
-            { label: '用户ID', name: 'userId', index: "user_id", width: 45, key: true },
+            { label: '用户ID', name: 'userId', index: "user_id", width: 45},
             { label: '用户名', name: 'userName', index: 'user_name', width: 80 },
             { label: '收货人姓名', name: 'receiveName', index: 'receive_name', width: 80 },
             { label: '收货人电话', name: 'receiveMobile', index: 'receive_mobile', width: 80 },
@@ -40,6 +40,8 @@ $(function () {
     });
 });
 
+var userInfo;
+
 var vm = new Vue({
     el:'#rrapp',
     data:{
@@ -48,6 +50,8 @@ var vm = new Vue({
         },
         showList: true,
         title: null,
+        userId:null,
+        userName:null,
         userAddress: {}
     },
     methods: {
@@ -57,7 +61,17 @@ var vm = new Vue({
         add: function(){
             vm.showList = false;
             vm.title = "新增";
-            vm.userAddress = {};
+            vm.userAddress = {userName:null,userId:null};
+            vm.getUserInfo();
+        },
+        getUserInfo: function(){
+            $.get(baseURL + "sys/user/list", function(r){
+                $.fn.init($("#userIframe"), setting, r);
+                alert(r);
+                userInfo = r.user;
+                vm.userAddress.userId = r.id;
+                vm.userAddress.userName = r.userName;
+            })
         },
         update: function (event) {
             var id = getSelectedRow();
@@ -70,7 +84,7 @@ var vm = new Vue({
             vm.getInfo(id)
         },
         saveOrUpdate: function (event) {
-            var url = vm.userAddress.id == null ? "blg/userAddress/save" : "blg/userAddress/update";
+            var url = vm.userAddress.id == null ? "sys/userAddress/save" : "sys/userAddress/update";
             $.ajax({
                 type: "POST",
                 url: baseURL + url,
@@ -96,7 +110,7 @@ var vm = new Vue({
             confirm('确定要删除选中的记录？', function(){
                 $.ajax({
                     type: "POST",
-                    url: baseURL + "blg/userAddress/delete",
+                    url: baseURL + "sys/userAddress/delete",
                     contentType: "application/json",
                     data: JSON.stringify(ids),
                     success: function(r){
@@ -112,8 +126,23 @@ var vm = new Vue({
             });
         },
         getInfo: function(id){
-            $.get(baseURL + "blg/userAddress/info/"+id, function(r){
+            $.get(baseURL + "sys/userAddress/info/"+id, function(r){
                 vm.userAddress = r.userAddress;
+            });
+        },
+        userIframe: function(){
+            layer.open({
+                type: 2,
+                offset: '50px',
+                title: "选择用户",
+                shadeClose: false,
+                content: jQuery("#userLayer"),
+                btn: ['确定', '取消'],
+                btn1: function (index) {
+                    vm.userAddress.userId = userInfo[0].userId;
+                    vm.userAddress.userName = userInfo[0].userName;
+                    layer.close(index);
+                }
             });
         },
         reload: function (event) {
