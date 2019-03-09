@@ -378,3 +378,104 @@ CREATE INDEX IDX_QRTZ_FT_J_G ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,JOB_NAME,JOB_GROU
 CREATE INDEX IDX_QRTZ_FT_JG ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,JOB_GROUP);
 CREATE INDEX IDX_QRTZ_FT_T_G ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_NAME,TRIGGER_GROUP);
 CREATE INDEX IDX_QRTZ_FT_TG ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_GROUP);
+
+
+/*==============================================================*/
+/* Table: blg_user_address                                      */
+/*==============================================================*/
+create table blg_user_address
+(
+   id                   bigint not null comment '主键',
+   user_id              bigint not null comment '用户ID',
+   user_name            varchar(32) comment '用户名',
+   receive_name         varchar(32) comment '收货人姓名',
+   receive_mobile       varchar(16) comment '收货人电话',
+   address              varchar(500) comment '用户地址',
+   postal_code          varchar(6) comment '邮政编码',
+   province             varchar(32) comment '省份',
+   city                 varchar(32) comment '城市',
+   county               varchar(32) comment '县',
+   create_name          varchar(64) comment '创建人',
+   create_date          datetime comment '创建时间',
+   update_name          varchar(64) comment '修改人',
+   update_date          datetime comment '修改时间',
+   primary key (id)
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COMMENT='用户地址表';
+
+
+/*==============================================================*/
+/* Table: blg_prod_image                                        */
+/*==============================================================*/
+create table blg_prod_image
+(
+   id                   bigint not null comment '主键',
+   prod_id              bigint comment '商品ID',
+   url                  varchar(500) comment '图片路径',
+   type                 varchar(2) comment '图片类型',
+   create_name          varchar(64) comment '创建人',
+   create_date          datetime comment '创建时间',
+   primary key (id)
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COMMENT='商品图片';
+
+/*==============================================================*/
+/* Table: blg_product                                           */
+/*==============================================================*/
+create table blg_product
+(
+   id                   bigint not null comment '主键',
+   prod_code            varchar(64) not null comment '商品编码',
+   prod_name            varchar(200) not null comment '商品名称',
+   prod_price           decimal(16,4) comment '商品价格',
+   prod_spec            varchar(20) comment '商品规格',
+   prod_unit            varchar(2) comment '商品单位',
+   prod_status          varchar(2) comment '商品状态',
+   create_name          varchar(64) comment '创建人',
+   create_date          datetime comment '创建时间',
+   update_name          varchar(64) comment '修改人',
+   update_date          datetime comment '修改时间',
+   primary key (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品信息表';
+
+
+/*==============================================================*/
+/* Table: blg_order                                             */
+/*==============================================================*/
+create table blg_order
+(
+   id                   bigint not null comment '主键',
+   address_id           bigint comment '用户地址ID',
+   order_no             varchar(64) not null comment '订单号',
+   total_price          decimal(16,4) not null comment '订单价格',
+   order_date           date not null comment '下单时间',
+   order_status         varchar(2) not null comment '订单状态',
+   create_name          varchar(64) comment '创建人',
+   create_date          datetime comment '创建时间',
+   update_name          varchar(64) comment '修改人',
+   update_date          datetime comment '修改时间',
+   primary key (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单信息表';
+
+
+/*==============================================================*/
+/* Table: blg_order_item                                        */
+/*==============================================================*/
+create table blg_order_item
+(
+   id                   bigint not null comment '主键',
+   order_id             bigint comment '订单ID',
+   prod_id              bigint comment '商品ID',
+   prod_name            varchar(64) comment '商品名称',
+   prod_num             int comment '商品数量',
+   prod_price           decimal(16,4) comment '商品价格',
+   rent_start_date      date comment '租赁开始时间',
+   rent_end_date        date comment '租赁结束时间',
+   create_name          varchar(64) comment '创建人',
+   create_date          datetime comment '创建时间',
+   update_name          varchar(64) comment '修改人',
+   update_date          datetime comment '修改时间',
+   primary key (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单明细表';
+
+
+
+

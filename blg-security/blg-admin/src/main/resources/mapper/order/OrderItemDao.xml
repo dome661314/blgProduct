@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.blg.modules.order.dao.OrderItemDao">
+
+	<resultMap id="BaseResultMap" type="io.blg.modules.order.entity.OrderItemEntity">
+		<id column="id" property="id"  />
+		<result column="order_id" property="orderId" />
+		<result column="prod_id" property="prodId" />
+		<result column="prod_name" property="prodNum" />
+		<result column="prod_price" property="prodPrice" />
+		<result column="rent_start_date" property="rentStartDate" />
+		<result column="rent_end_date" property="rentEndDate" />
+		<result column="create_name" property="createName" />
+		<result column="create_date" property="createDate" />
+		<result column="update_name" property="updateName" />
+		<result column="update_date" property="updateDate" />
+	</resultMap>
+	
+	<select id="queryListByOrderId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select * from blg_order_item where order_id = #{id}
+	</select>
+
+</mapper>

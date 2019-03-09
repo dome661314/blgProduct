@@ -1,13 +1,11 @@
-package ${package}.${moduleName}.entity;
-
-import com.baomidou.mybatisplus.annotations.TableId;
+package ${package}import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 
-#if(${hasBigDecimal})
-import java.math.BigDecimal;
-#end
 import java.io.Serializable;
-import java.util.Date;
+
+.${moduleName}.entity;
+	#if(${hasBigDecimal})
+	#end
 
 /**
  * ${comments}
