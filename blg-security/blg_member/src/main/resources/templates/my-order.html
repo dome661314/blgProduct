@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的订单-全球时尚奢侈品共享平台－在bequeen，做自己的女王</title>
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.bequeenchina.com/favicon.ico" />
+	<meta name="keywords" content="bequeen,bequeen租赁网,时尚奢侈,绿色奢侈,女王">
+	<meta name="description" content="bequeen奢侈品租赁网站(bequeenchina.com)作为全球最大的时尚奢侈品租赁平台，涉及了奢侈品网上租赁、奢侈品实体休闲会所、奢侈品鉴定、养护服务等主营业务，100%正品保证，女王奢品，尽在bequeen！">
+	<link href="${request.contextPath}/statics/css/common.css" rel="stylesheet">
+	<link href="${request.contextPath}/statics/css/login.css" rel="stylesheet">
+	<script src="${request.contextPath}/statics/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="${request.contextPath}/statics/js/bikun.js"></script>
+</head>
+<body>
+	 <!------------------------------ 头部 ------------------------------>
+	 <div class="header clearfix">
+      <div class="header-classify left">
+        <ul>
+          <li><a href="index.html">可循环宝贝</a></li>
+
+
+        </ul>
+      </div>
+      <div class="header-sign left">
+        <div class="logo left pl25 mt5"><a href="index.html"><img src="${request.contextPath}/statics/images/logo.png"/></a></div>
+        <div class="user-sign right pl20">
+          <div class="initial-login clearfix" ><s></s><i></i><a href="login.html" class="login-text ml5">登录</a><a href="register.html" class="register-text  ml10">注册</a></div>
+          <div class="user-login clearfix" style="display:none;">
+            <s></s><i></i><em class="star-mar"><span>5</span></em><em class="more-mar"><span>5</span></em><a href="index.html" class="exit-login left ml5 mr10">退出登录</a><a href="bikun_MyGirIndex.html" class="portrait"><img src="${request.contextPath}/statics/images/small-head.jpg"/></a>
+          </div>
+      </div>
+     </div>
+    </div>
+	<!------------------------------ 头部end ------------------------------>
+
+	<!------------------------------ 我的订单 ------------------------------>
+	
+	<div class="my-order">
+		<h2>我的订单</h2>
+		<div class="order-nav mt30">
+			<div class="order-list left">
+				<ul>
+					<li><a href="">所有定单</a></li>
+					<li><a href="">待发货(2)</a></li>
+					<li><a href="">待收款(3)</a></li>
+					<li><a href="">待签收(4)</a></li>
+					<li><a href="">待评价(5)</a></li>
+				</ul>
+			</div>
+			<div class="order-check right">
+				<input type="text"/ value="商品名称、商品编号"><a href="">查询</a>
+			</div>
+		</div>
+		<div class="order-content mt30">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <th class="order-info">订单信息</th>
+                <th>收货人</th>
+                <th>定单金额</th>
+                <th>全部时间</th>
+                <th>全部状态</th>
+                <th>操作</th>
+              </tr>
+              <tr>
+              	<td class="fisrt-td relative">
+                  <div class="order-num">订单编号：<a href="">1302002000</a></div><img src="${request.contextPath}/statics/images/bag-img1.jpg">
+                </td>
+                <td>王某某</td>
+                <td class="online-pay">￥177<br/><a href="#">在线支付</a></td> 
+                <td>2014-07-22 <br/> 11:40:20</td>
+                <td class="font">等待付款<br/><a href="order-detail.html">跟踪</a></td>
+                <td class="font">
+                  <a href="order-detail.html" class="paid">付款</a><br/>
+                  <a href="my-orders.html">查看</a><br/>
+                  <a href="#">取消订单</a>
+                </td>
+              </tr>
+              <tr>
+              	<td class="fisrt-td relative">
+                  <div class="order-num">订单编号：<a href="">1302002000</a></div><img src="${request.contextPath}/statics/images/bag-img2.jpg">
+                </td>
+                <td>王某某</td>
+                <td>￥177<br/><a href="#">在线支付</a></td> 
+                <td>2014-07-22 <br/> 11:40:20</td>
+                <td>已付款</td>
+                <td class="change-color font">
+                  <a href="my-orders.html"><span>查看&nbsp;|&nbsp;</span></a>
+                  <a href="#"><span>删除</span></a><br/>
+                  <a href="order-details.html"><span>评论&nbsp;|&nbsp;</span></a>
+                  <a href="bikun_MyGirlies.html"><span>晒单</span></a><br/>
+                  <a href="order-detail.html"><span>续租&nbsp;/&nbsp;</span></a>
+                  <a href="order-detail.html"><span>退换货</span></a>
+                </td>
+              </tr>
+              <tr>
+                <td class="fisrt-td relative">
+                  <div class="order-num">订单编号：<a href="">1302002000</a></div><img src="${request.contextPath}/statics/images/bag-img3.jpg">
+                </td>
+                <td>王某某</td>
+                <td class="online-pay">￥177<br/><a href="">在线支付</a></td> 
+                <td>2014-07-22 <br/> 11:40:20</td>
+                <td class="font">等待付款<br/><a href="order-detail.html">跟踪</a></td>
+                <td class="font">
+                  <a href="order-detail.html" class="paid">付款</a><br/>
+                  <a href="my-orders.html">查看</a><br/>
+                  <a href="order-detail.html">取消订单</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="fisrt-td relative">
+                  <div class="order-num">订单编号：<a href="">1302002000</a></div><img src="${request.contextPath}/statics/images/bag-img1.jpg">
+                </td>
+                <td>王某某</td>
+                <td class="online-pay">￥177<br/><a href="">在线支付</a></td> 
+                <td>2014-07-22 <br/> 11:40:20</td>
+                <td class="font">等待付款<br/><a href="order-detail.html">跟踪</a></td>
+                <td class="font">
+                  <a href="order-detail.html" class="paid">付款</a><br/>
+                  <a href="my-orders.html">查看</a><br/>
+                  <a href="order-detail.html">取消订单</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="fisrt-td relative">
+                  <div class="order-num">订单编号：<a href="">1302002000</a></div><img src="${request.contextPath}/statics/images/bag-img2.jpg">
+                </td>
+                <td>王某某</td>
+                <td>￥177<br/><a href="">在线支付</a></td> 
+                <td>2014-07-22 <br/> 11:40:20</td>
+                <td>已付款</td>
+                <td class="change-color font">
+                  <a href="my-orders.html"><span>查看&nbsp;|&nbsp;</span></a>
+                  <a href=""><span>删除</span></a><br/>
+                  <a href="order-details.html"><span>评论&nbsp;|&nbsp;</span></a>
+                  <a href="bikun_MyGirlies.html"><span>晒单</span></a><br/>
+                  <a href="order-detail.html"><span>续租&nbsp;/&nbsp;</span></a>
+                  <a href="order-detail.html"><span>退换货</span></a>
+                </td>
+              </tr>
+              <tr>
+                <td class="fisrt-td relative">
+                  <div class="order-num">订单编号：<a href="">1302002000</a></div><img src="${request.contextPath}/statics/images/bag-img3.jpg">
+                </td>
+                <td>王某某</td>
+                <td class="online-pay">￥177<br/><a href="">在线支付</a></td> 
+                <td>2014-07-22 <br/> 11:40:20</td>
+                <td class="font">等待付款<br/><a href="order-detail.html">跟踪</a></td>
+                <td class="font">
+                  <a href="order-detail.html" class="paid">付款</a><br/>
+                  <a href="my-orders.html">查看</a><br/>
+                  <a href="order-detail.html">取消订单</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="fisrt-td relative">
+                  <div class="order-num">订单编号：<a href="">1302002000</a></div><img src="${request.contextPath}/statics/images/bag-img1.jpg">
+                </td>
+                <td>王某某</td>
+                <td class="online-pay">￥177<br/><a href="">在线支付</a></td> 
+                <td>2014-07-22 <br/> 11:40:20</td>
+                <td class="font">等待付款<br/><a href="order-detail.html">跟踪</a></td>
+                <td class="font">
+                  <a href="order-detail.html" class="paid">付款</a><br/>
+                  <a href="my-orders.html">查看</a><br/>
+                  <a href="order-detail.html">取消订单</a>
+                </td>
+              </tr>
+          </table>
+		</div>
+		<div class="paging-box">
+			<ul clas="items">
+				<li class="prev">上一页</li>								
+				<li class="next">下一页</li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">...</a></li>
+				<li><a href="#">8</a></li>
+				<li class="end">末页</li>
+			</ul>
+		</div>
+	</div>
+
+	<!------------------------------ 我的订单end ------------------------------>
+
+
+
+	<!--固定浮动窗帘-->
+	<div class="fixed_float">
+		<div class="float_leftBox">
+			<s class="r_sj"></s>
+			<ul>
+				<li><a href="javascript:;" class="one"></a></li>
+				<li><a href="javascript:;" class="two"></a></li>
+				<li><a href="javascript:;" class="thr"></a></li>
+				<li><a href="javascript:;" class="four"></a></li>
+			</ul>
+		</div>
+		<div class="float_rightBox">
+			<ul>
+				<li><a href="my-cart.html" class="shopping_cart"></a><b>0</b></li>
+				<li><a href="javascript:;" class="heart"></a><b>0</b></li>
+				<li><a href="javascript:;" class="phone"></a></li>
+				<li><a href="javascript:;" class="share"></a></li>
+				<li><a href="javascript:;" class="Micro"></a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

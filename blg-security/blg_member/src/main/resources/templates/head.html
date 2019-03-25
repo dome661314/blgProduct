@@ -1,0 +1,42 @@
+<script type="text/javascript">
+
+    //页面加载后,自动获取用户信息,动态更新顶部的信息 --利于页面静态化
+    $(document).ready(function(){
+        $.post('http://localhost:8081/blg-member/member/fetchUserHead',{
+            type:"1"
+        },function(data){
+            if(data.username!=null){
+                $("#guestDiv").hide();
+                $("#loginedDiv").show();
+            }else{
+                $("#guestDiv").show();
+                $("#loginedDiv").hide();
+            }
+        });
+        if($("#beLogin").val()==1){
+            $("#loginLink").attr("href","javascript:void(0)");
+        }
+    });
+</script>
+
+<div class="header-classify left">
+        <ul>
+            <li><a href="index.html">可循环宝贝</a></li>
+        </ul>
+    </div>
+    <div class="header-sign left">
+        <div class="logo left pl25 mt5"><a href="index.html"><img src="${request.contextPath}/statics/images/logo.png"/></a></div>
+        <div class="user-sign right pl20">
+
+            <div id="guestDiv" style="dispaly:none" class="initial-login clearfix" >
+                <s></s><i></i>
+                <a href="login.html" class="login-text ml5">登录</a>
+                <a href="register.html" class="register-text  ml10">注册</a>
+            </div>
+            <div id="loginedDiv" style="dispaly:none" class="user-login clearfix" style="display:none;">
+                <s></s><i></i>
+                <a href="logout" class="exit-login left ml5 mr10">退出登录</a>
+                <a href="bikun_MyGirIndex.html" class="portrait"><img src="${request.contextPath}/statics/images/small-head.jpg"/></a>
+            </div>
+        </div>
+    </div>

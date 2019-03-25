@@ -2,7 +2,6 @@ package io.blg.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import io.blg.common.utils.PageUtils;
-import io.blg.modules.prod.entity.ProductEntity;
 import io.blg.modules.sys.entity.UserAddressEntity;
 
 import java.util.HashMap;

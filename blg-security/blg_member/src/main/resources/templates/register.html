@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册-全球时尚奢侈品共享平台－在bequeen，做自己的女王</title>
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.bequeenchina.com/favicon.ico" />
+	<meta name="keywords" content="bequeen,bequeen租赁网,时尚奢侈,绿色奢侈,女王">
+	<meta name="description" content="bequeen奢侈品租赁网站(bequeenchina.com)作为全球最大的时尚奢侈品租赁平台，涉及了奢侈品网上租赁、奢侈品实体休闲会所、奢侈品鉴定、养护服务等主营业务，100%正品保证，女王奢品，尽在bequeen！">
+	<link href="${request.contextPath}/statics/css/common.css" rel="stylesheet">
+	<link href="${request.contextPath}/statics/css/login.css" rel="stylesheet">
+	<script src="${request.contextPath}/statics/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="${request.contextPath}/statics/js/bikun.js"></script>
+</head>
+<script>
+$(function(){
+	$(".agree-btn").click(function(){
+		mark();		
+	});
+	$("#top").load("head.html");
+
+	function mark(){
+			$(".mask").show();
+		 	  var lefts = ($(window).width() - $(".agree-mask").width())/2;
+	          var tops = ($(window).height() - $(".agree-mask").height())/2;
+	      $(".agree-mask").show().css({
+	        "left": lefts,
+	        "top": tops      
+		  });
+
+		  
+		}$(".user-agree span").bind("click",function(){
+		    $(".mask").hide();
+		    $(".agree-mask").hide();
+		  });
+
+	
+});
+function hid(){
+	$(".mask").hide();
+	$(".agree-mask").hide();
+}
+var check=0;
+function validateInput(){
+	var username=$("#username").val();
+	var mobile=$("#mobile").val();
+	var password=$("#password").val();
+	var rePassword=$("#rePassword").val();
+	var choice=$('[name=choice]:checked');
+	var email =$("#email").val();
+	var regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+	if(username==""){
+		$("#user1").show();
+		check=0;
+	}else{
+		$("#user1").hide();
+		$.post("http://localhost:8081/blg-member/member/validate",
+				{username:username},
+				function(data){
+					if(data)
+					{
+						$("#user2").show();
+						check=0;
+					}else{
+						$("#user2").hide();
+						$("#user3").show();
+					}
+				});
+		check=1;
+	}
+	if(mobile==""){
+		$("#mobile1").show();
+		check=0;
+	}else{
+		$("#mobile1").hide();
+		check=1;
+	}
+	if(email==""){
+		$("#email1").show();
+		check=0;
+	}else{
+		$("#email1").hide();
+		check=1;
+	}
+	if(!regEmail.test(email))
+	{
+		$("#email1").show();
+		check=0;
+	}else{
+		$("#email1").hide();
+		check=1;
+	}
+	if(password==""){
+		$("#pwd1").show();
+		check=0;
+	}else{
+		$("#pwd1").hide();
+		check=1;
+	}
+	if(password.length<6){
+		$("#pwd1").show();
+		check=0;
+	}else{
+		$("#pwd1").hide();
+		$("#pwd").show();
+		check=1;
+	}
+	if(rePassword==""){
+		$("#pwd3").show();
+		check=0;
+	}else{
+		$("#pwd3").hide();
+		check=1;
+	}
+	if(rePassword!=password){
+		$("#pwd2").show();
+		check=0;
+	}else{
+		$("#pwd2").hide();
+		$("#repwd").show();
+		check=1;
+	}
+	if (choice.length <= 0){
+		$("#choice1").show();
+		check=0;
+	}else{
+		$("#choice1").hide();
+		check=1;
+	}
+}
+function saveMember(){
+	if (check==1){
+		$.ajax({
+			async : false,
+			cache : false,
+			timeout: 1000,
+			url: 'http://localhost:8081/blg-member/member/saveMember',
+			type: "post",
+			data:$('#form1').serialize(),
+			success: function(data){
+				if(data.code == 0){
+					window.location.href = "http://localhost:8081/blg-member";
+				}else{
+					window.location.href = "http://localhost:8081/blg-member/register.html";
+				}
+			}
+		});
+	}else{
+		validateInput();
+	}
+}
+	
+</script>
+
+<body>
+<div class="header clearfix" id="top"></div>
+	<!------------------------------ 注册页面 ------------------------------>
+	<div class="register">
+		<div class="register-top clearfix">
+			<div class="register-login left"><a href="index.html">商品租赁平台</a>&nbsp;&gt;&nbsp;<a href="#">产品系列</a>&nbsp;&gt;&nbsp;<a href="#">女包</a></div>
+			<div class="registed left"><span>我已注册,现在就&nbsp;</span><a href="login.html">登 录</a></div>
+		</div>		
+		<div class="register-box clearfix">
+           <form id="form1" method="post">
+               <div class="login-con register-con left">
+                  <dl class="clearfix">
+                    <dt><i></i></dt>
+                    <dd><input type="text" value="用户名" class="register-input left" id="username" name="username" onchange="validateInput()" onFocus="if(value=='用户名'){value='';}" onBlur="if(!value){value='用户名';}"/></dd>
+					  <dd class="register-info" id="user1" style="display: none;"><font></font><i class="import-phone left">请输入用户名</i></dd>
+					  <dd class="register-info" id="user2" style="display: none;"><font></font><i class="import-phone left">该用户名已被使用</i></dd>
+					  <dd class="register-info" id="user3" style="display: none;"><font class="correct"></font><i class="import-phone left"></i></dd>
+                  </dl>
+				   <dl class="clearfix">
+					   <dt><i></i></dt>
+					   <dd><input type="text" value="手机号" class="register-input left" id="mobile" name="mobile" onchange="validateInput()" onFocus="if(value=='手机号'){value='';}" onBlur="if(!value){value='手机号';}"/></dd>
+					   <dd class="register-info" id="mobile1" style="display: none;"><font></font><i class="import-phone left">请输入十一位的手机号码</i></dd>
+					   <dd class="register-info" id="mobile3" style="display: none;"><font class="correct"></font><i class="import-phone left"></i></dd>
+				   </dl>
+				   <dl class="clearfix">
+					   <dt><i></i></dt>
+					   <dd><input type="text" value="邮箱" class="register-input left" id="email" name="email" onchange="validateInput()" onFocus="if(value=='邮箱'){value='';}" onBlur="if(!value){value='邮箱';}"/></dd>
+					   <dd class="register-info" id="email1" style="display: none;"><font></font><i class="import-phone left">请输入正确的邮箱</i></dd>
+					   <dd class="register-info" id="email2" style="display: none;"><font class="correct"></font><i class="import-phone left"></i></dd>
+				   </dl>
+                  <dl class="clearfix">
+                    <dt><s></s></dt>
+                    <dd><input type="password" value="请设置密码" class="register-input left" id="password" name="password" onchange="validateInput()" onFocus="if(value=='请设置密码'){value='';}" onBlur="if(!value){value='请设置密码';}"/></dd>
+					  <dd class="register-info" id="pwd1" style="display: none;"><font></font><i class="import-phone left">6~16个字符，区分大小写</i></dd>
+					  <dd class="register-info" id="pwd" style="display: none;"><font class="correct"></font><i class="import-phone left"></i></dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt><em></em></dt>
+                    <dd><input type="password" value="请确认密码" class="register-input left" id="rePassword" name="rePassword" onchange="validateInput()" onFocus="if(value=='请确认密码'){value='';}" onBlur="if(!value){value='请确认密码';}"/></dd>
+					  <dd class="register-info" id="pwd2" style="display: none;"><font></font><i class="import-phone left">与上面密码不符</i></dd>
+					  <dd class="register-info" id="pwd3" style="display: none;"><font></font><i class="import-phone left">6~16个字符，区分大小写</i></dd>
+					  <dd class="register-info" id="repwd" style="display: none;"><font class="correct"></font><i class="import-phone left"></i></dd>
+                  </dl>
+                  <p class="agree"><input type="checkbox" class="checkbox"/>我已阅读并同意<a href="">《用户注册协议》</a></p>
+                  <p><a href="javascript:saveMember()"  class="agree-btn ml60">同意协议并注册</a></p>
+               </div>
+           </form>
+        </div>
+	</div>
+	<!------------------------------ 注册页面end ------------------------------>
+
+
+
+	<!--固定浮动窗帘-->
+	<div class="fixed_float">
+		<div class="float_leftBox">
+			<s class="r_sj"></s>
+			<ul>
+				<li><a href="javascript:;" class="one"></a></li>
+				<li><a href="javascript:;" class="two"></a></li>
+				<li><a href="javascript:;" class="thr"></a></li>
+				<li><a href="javascript:;" class="four"></a></li>
+			</ul>
+		</div>
+		<div class="float_rightBox">
+			<ul>
+				<li><a href="my-cart.html" class="shopping_cart"></a><b>0</b></li>
+				<li><a href="javascript:;" class="heart"></a><b>0</b></li>
+				<li><a href="javascript:;" class="phone"></a></li>
+				<li><a href="javascript:;" class="share"></a></li>
+				<li><a href="javascript:;" class="Micro"></a></li>
+			</ul>
+		</div>
+	</div>
+
+<!------------ 同意注册弹出遮罩 ------------>
+        <div class="mask" style="display: block;"></div>
+        <div class="agree-mask" style="display: block; left:23%; top:13%">
+        	<div class="user-agree"><h2>用户注册协议</h2><span></span></div>
+			<h3>一、总则</h3>
+			<p>1.1 保宝网的所有权和运营权归深圳市永兴元科技有限公司所有。</p>
+			<p>1.2 用户在注册之前，应当仔细阅读本协议，并同意遵守本协议后方可成为注册用户。一旦注册成功，则用户与保宝网之间自动形成协议关系，用户应当受本协议的约束。用户在使用特殊的服务或产品时，应当同意接受相关协议后方能使用。</p>
+			<p>1.3 本协议则可由保宝网随时更新，用户应当及时关注并同意本站不承担通知义务。本站的通知、公告、声明或其它类似内容是本协议的一部分。</p>
+			<h3>二、服务内容</h3>
+			<p>2.1 保宝网的具体内容由本站根据实际情况提供。</p>
+			<p>2.2 本站仅提供相关的网络服务，除此之外与相关网络服务有关的设备(如个人电脑、手机、及其他与接入互联网或移动网有关的装置)及所需的费用(如为接入互联网而支付的电话费及上网费、为使用移动网而支付的手机费)均应由用户自行负担。</p>
+			<h3>三、用户帐号</h3>
+			<p>3.1 经本站注册系统完成注册程序并通过身份认证的用户即成为正式用户，可以获得本站规定用户所应享有的一切权限；未经认证仅享有本站规定的部分会员权限。保宝网有权对会员的权限设计进行变更。</p>
+			<p>3.2 用户只能按照注册要求使用真实姓名，及身份证号注册。用户有义务保证密码和帐号的安全，用户利用该密码和帐号所进行的一切活动引起的任何损失或损害，由用户自行承担全部责任，本站不承担任何责任。</p>
+			<div class="agree-login pb46"><a href="#" onclick="hid()">同意并继续注册</a></div>
+        </div>
+
+</body>
+</html>

@@ -42,6 +42,14 @@ public class ProductEntity {
 
     private String prodStatus;
 
+    @NotNull(message="商品数量不能为空")
+    private Integer prodNum;
+
+    private Date  produceDate;
+
+    @NotBlank(message="生产日期不能为空")
+    private String  produceDateStr;
+
     @TableField(exist=false)
     private List<ProdImageEntity> imageList = null;
 
@@ -52,6 +60,15 @@ public class ProductEntity {
     private String updateName;
 
     private Date updateDate;
+
+    @NotBlank(message="商品品牌不能为空")
+    private String prodBrand;
+
+    private BigDecimal deposit;
+
+    private String prodPlace;
+
+    private String prod_condition;
 
 
 

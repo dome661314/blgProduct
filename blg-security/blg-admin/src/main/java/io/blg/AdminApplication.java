@@ -17,7 +17,7 @@ public class AdminApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AdminApplication.class, args);
-		logger.info("商品系统管理平台blg-admin启动完成！");
+		logger.info("商品租赁管理系统blg-admin启动完成！");
 	}
 
 	@Override

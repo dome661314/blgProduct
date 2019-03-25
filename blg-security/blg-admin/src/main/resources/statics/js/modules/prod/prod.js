@@ -7,7 +7,13 @@ $(function () {
             { label: '商品名称', name: 'prodName', index: 'prod_name', width: 80 },
             { label: '商品规格', name: 'prodSpec', index: 'prod_spec', width: 80 },
             { label: '商品价格', name: 'prodPrice', index: 'prod_price', width: 80 },
+            { label: '商品数量', name: 'prodNum', index: 'prod_num', width: 80 },
+            { label: '生产日期', name: 'produceDate', index: 'produce_date', width: 80 },
             { label: '商品单位', name: 'prodUnit', index: 'prod_unit', width: 80 },
+            { label: '商品品牌', name: 'prodBrand', index: 'prod_brand', width: 80 },
+            { label: '押金', name: 'deposit', index: 'deposit', width: 80 },
+            { label: '商品产地', name: 'prodPlace', index: 'prod_place', width: 80 },
+            { label: '商品成色', name: 'condition', index: 'prod_condition', width: 80 },
             { label: '商品状态', name: 'prodStatus', width: 60, formatter: function(value, options, row){
                     return value === 0 ?
                         '<span class="label label-danger">下架</span>' :
@@ -124,6 +130,40 @@ var vm = new Vue({
                 postData:{'prodCode': vm.q.prodCode},
                 page:page
             }).trigger("reloadGrid");
-        }
+        },
+        dateDefault: function(event){
+            var d, s;
+            var self = this;
+            d = new Date();
+            s = d.getFullYear() + "-";       //取年份
+            s = s + (d.getMonth() + 1) + "-";   //取月份,date生成的月份为0-11
+            s += d.getDate() + " ";        //取日期
+            s += d.getHours() + ":";        //取小时
+            s += d.getMinutes() + ":";       //取分
+            s += d.getSeconds();          //取秒
+            self.time = s;
+            $('.form_datetime').datetimepicker({
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd hh:ii:ss',
+                //startDate: s,    默认开始时间
+                weekStart: 0,    //一周从那一天开始，默认值为:0,范围：0-6
+                todayBtn: 1,    //默认值：false，为true时，底部显示today，不选中，为linked时当天日期被选中
+                autoclose: 1,    //选择一个日期后是否立即关闭此选择框
+                todayHighlight: 1,  //高亮当前日期
+                startView: 2,     // 日期时间选择器打开之后首先显示的视图，默认值为：2，0:hour,1:day,2:mouth,3:year,4:decade
+                forceParse: 0,    //强制解析文本框的值
+                showMeridian: 1
+            });
+            $('#form_datetime').datetimepicker()
+                .on('hide', function (ev) {
+                    var value = $("#form_datetime").val();
+                    self.time = value;
+                });
+
+        },
+        mounted: function(event) {
+            //必须在组件渲染之后调用
+            this.dateDefault();
+        },
     }
 });

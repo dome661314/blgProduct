@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>提交订单-全球时尚奢侈品共享平台－在bequeen，做自己的女王</title>
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.bequeenchina.com/favicon.ico" />
+	<meta name="keywords" content="bequeen,bequeen租赁网,时尚奢侈,绿色奢侈,女王">
+	<meta name="description" content="bequeen奢侈品租赁网站(bequeenchina.com)作为全球最大的时尚奢侈品租赁平台，涉及了奢侈品网上租赁、奢侈品实体休闲会所、奢侈品鉴定、养护服务等主营业务，100%正品保证，女王奢品，尽在bequeen！">
+	<link href="${request.contextPath}/statics/css/common.css" rel="stylesheet">
+	<link href="${request.contextPath}/statics/css/login.css" rel="stylesheet">
+	<script src="${request.contextPath}/statics/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="${request.contextPath}/statics/js/bikun.js"></script>
+<script>
+function closeMask(){
+	$(".mask").hide();
+        $(".modify_r").hide();
+}
+</script>
+</head>
+
+<body>
+	 <!------------------------------ 头部 ------------------------------>
+	 <div class="header clearfix">
+      <div class="header-classify left">
+        <ul>
+          <li><a href="index.html">可循环宝贝</a></li>
+
+
+        </ul>
+      </div>
+      <div class="header-sign left">
+        <div class="logo left pl25 mt5"><a href="index.html"><img src="${request.contextPath}/statics/images/logo.png"/></a></div>
+        <div class="user-sign right pl20">
+          <div class="initial-login clearfix" ><s></s><i></i><a href="login.html" class="login-text ml5">登录</a><a href="register.html" class="register-text  ml10">注册</a></div>
+          <div class="user-login clearfix" style="display:none;">
+            <s></s><i></i><em class="star-mar"><span>5</span></em><em class="more-mar"><span>5</span></em><a href="index.html" class="exit-login left ml5 mr10">退出登录</a><a href="bikun_MyGirIndex.html" class="portrait"><img src="${request.contextPath}/statics/images/small-head.jpg"/></a>
+          </div>
+      </div>
+     </div>
+    </div>
+	<!------------------------------ 头部end ------------------------------>
+
+	<!------------------------------ 我的订单 ------------------------------>
+
+	<div class="submit-order">
+		<h2>我的订单</h2>
+    <div class="write-info"><span>填写并核对订单信息</span><a href="">修改新地址</a></div>
+    <div class="receipt-info pt5s receive">
+        <h3>收货人信息<span>[编辑]</span></h3>
+          <dl class="clearfix">
+
+              <dd><p class="clearfix">张小健 1531320468  84766233@qq.com</p>
+                  <p class="clearfix">
+                     <span  class="left wid575">北京 东城区 内环到三环里 东城区景山东街三眼井胡同49号</span></p></dd>
+              <dt><div class="new-address"><s>+</s>使用新地址</div></dt> 
+          </dl>
+      </div>
+     <div class="receipt-info pt40 receiver">
+        <h3>发票信息<span>[编辑]</span></h3>
+          <dl class="clearfix">
+
+              <dd><p class="clearfix">普通发票&nbsp;(电子) &nbsp;&nbsp;个人&nbsp;&nbsp; 明细</p>
+                  <p class="clearfix">
+                     <span class="left">温馨提示：</span>
+                     <span  class="left wid575">发票的开票金额不包括毕坤卡、优惠劵部分<br>电子发票是税务局认可的有效收付款凭证，具有售后维护的法律效力，暂不支持企业报销</span></p></dd>
+              <dt></dt> 
+          </dl>
+      </div>
+    <h3>商品清单</h3>
+		<div class=" apply-info relet-info mt20">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <th class="good"><input type="checkbox"/>&nbsp;&nbsp;全选 <em class="ml20">商品</em> </th>
+                <th>价格(元/天)</th>
+                <th>日期</th>
+                <th>数量</th> 
+                <th>押金</th>               
+                <th>小计信息</th>
+              </tr>
+              <tr>
+                <td>
+                  <dl class="clearfix">
+                    <dt><input type="checkbox" class="checkbox left" /><img src="${request.contextPath}/statics/images/bag-img4.jpg"></dt>
+                    <dd>MADISON麦迪逊压花皮革PINNACLE CARRIE手提包<span>商品编号：1030849</span></dd>
+                  </dl>
+                </td>
+                <td><span class="price">￥177</span><br/><s class="ft14">￥556</s></td>
+                <td>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                </td>
+                <td><a href="" class="clearfix ml35"><u></u><i>1</i><s></s></a></td> 
+                <td><span>￥50000</span></td>
+                <td><span class="has-background">￥1239</span></td>                          
+              </tr>
+              
+              <tr>
+                <td>
+                  <dl class="clearfix">
+                    <dt><input type="checkbox" class="checkbox left" /><img src="${request.contextPath}/statics/images/bag-img4.jpg"></dt>
+                    <dd>MADISON麦迪逊压花皮革PINNACLE CARRIE手提包<span>商品编号：1030849</span></dd>
+                  </dl>
+                </td>
+                <td><span class="price">￥177</span><br/><s class="ft14">￥556</s></td>
+                <td>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                </td>
+                <td><a href="" class="clearfix ml35"><u></u><i>1</i><s></s></a></td> 
+                <td><span>￥50</span><span class="right">八层新</span></td>
+                <td><span class="has-background">￥1239</span></td>                          
+              </tr>
+
+              <tr>
+                <td>
+                  <dl class="clearfix">
+                    <dt><input type="checkbox" class="checkbox left" /><img src="${request.contextPath}/statics/images/bag-img4.jpg"></dt>
+                    <dd>MADISON麦迪逊压花皮革PINNACLE CARRIE手提包<span>商品编号：1030849</span></dd>
+                  </dl>
+                </td>
+                <td><span class="price">￥177</span><br/><s class="ft14">￥556</s></td>
+                <td>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                </td>
+                <td><a href="" class="clearfix ml35"><u></u><i>1</i><s></s></a></td> 
+                <td><span>￥50</span></td>
+                <td><span class="has-background">￥1239</span></td>                          
+              </tr>
+
+          </table>
+		</div>
+    <div class="mt20"><a href="" class="del-choose">删除勾选</a></div>
+    <p class="mt23"><a href="index.html" class="stroll left">&lt;&lt;再去逛逛</a><span>1</span> 件商品 总商品金额：<b>￥332.00</b></p>
+		<p>租金：<b>￥166.00</b></p>
+    <p>押金：<b>￥166.00</b></p>
+    <p>运费：<b>-￥0.00</b></p>
+    <p class="total-money"><em class="ft18">总金额（已免运费）：</em><b class="ft28 mr22">￥322</b><a href="order-generated.html" class="now-pay right">提交订单</a></p>  
+	</div>
+
+	<!------------------------------ 我的订单end ------------------------------>
+
+
+
+	<!--固定浮动窗帘-->
+	<div class="fixed_float">
+		<div class="float_leftBox">
+			<s class="r_sj"></s>
+			<ul>
+				<li><a href="javascript:;" class="one"></a></li>
+				<li><a href="javascript:;" class="two"></a></li>
+				<li><a href="javascript:;" class="thr"></a></li>
+				<li><a href="javascript:;" class="four"></a></li>
+			</ul>
+		</div>
+		<div class="float_rightBox">
+			<ul>
+				<li><a href="my-cart.html" class="shopping_cart"></a><b>0</b></li>
+				<li><a href="javascript:;" class="heart"></a><b>0</b></li>
+				<li><a href="javascript:;" class="phone"></a></li>
+				<li><a href="javascript:;" class="share"></a></li>
+				<li><a href="javascript:;" class="Micro"></a></li>
+			</ul>
+		</div>
+	</div>
+    
+	<!--固定浮动窗帘-->  
+    <div class="mask" style="display:block"></div>
+	<div class="modify_contO modify_contSix" style="position:fixed; z-index:99999; left:33%; top:30%">
+		<div class="modify_r">
+			<p>
+				<font><em class="redStart"></em>收货人：</font><input type="text" class="myGirT_w200" value=""><span>请输入真实的收货人姓名</span>
+			</p>
+			<p>
+				<font><em class="redStart"></em>所在地区：</font><select class="myGirSelect_w98"><option>请选择</option></select>
+				<select class="myGirSelect_w98"><option>请选择</option></select>
+				<select class="myGirSelect_w98"><option>请选择</option></select>
+			</p>
+			<p><font><em class="redStart"></em>详细地址：</font><input type="text" class="myGirT_w400" value=""></p>
+			<p><font>邮政编码：</font><input type="text" class="myGirT_w200" value=""></p>
+			<p>
+				<font><em class="redStart"></em>手机号码：</font><input type="text" class="myGirT_w200" value=""><code style="margin-left:10px;">或</code><span>固定电话</span><input type="text" class="myGirT_w40" value="区号">-<input type="text" class="myGirT_w90" value="座机号码">-<input type="text" class="myGirT_w50" value="分机号">
+			</p>
+			<p><font>邮箱：</font><input type="text" class="myGirT_w200" value=""><span>用来接收订单提醒邮件，便于您及时了解订单状态</span></p>
+			<p><font></font><input type="checkbox" class="checkbox1" checked value="">设为默认</p>
+			<div class="modify_btns mt30 clearfix"><input type="button" class="myGirBtn_w170" onclick="closeMask()" value="确认"><input onclick="closeMask()" type="button" class="myGirBtn_w170 ml30" value="取消"></div>
+		</div>
+	</div>
+</body>
+</html>

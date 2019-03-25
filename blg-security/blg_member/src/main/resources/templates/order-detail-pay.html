@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单跟踪-全球时尚奢侈品共享平台－在bequeen，做自己的女王</title>
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.bequeenchina.com/favicon.ico" />
+	<meta name="keywords" content="bequeen,bequeen租赁网,时尚奢侈,绿色奢侈,女王">
+	<meta name="description" content="bequeen奢侈品租赁网站(bequeenchina.com)作为全球最大的时尚奢侈品租赁平台，涉及了奢侈品网上租赁、奢侈品实体休闲会所、奢侈品鉴定、养护服务等主营业务，100%正品保证，女王奢品，尽在bequeen！">
+	<link href="${request.contextPath}/statics/css/common.css" rel="stylesheet">
+	<link href="${request.contextPath}/statics/css/login.css" rel="stylesheet">
+	<script src="${request.contextPath}/statics/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="${request.contextPath}/statics/js/bikun.js"></script>
+    <script>
+		$(function(){
+		  $(".cz-content em").click(function(){
+			mark();   
+		  });
+		
+		  function mark(){
+			  $(".mask").show();
+				var lefts = ($(window).width() - $(".goods-review").width())/2;
+					var tops = ($(window).height() - $(".goods-review").height())/2;
+				$(".goods-review").show().css({
+				  "left": lefts,
+				  "top": tops      
+			  });
+		
+			  $(".goods-discuss span").bind("click",function(){
+				$(".mask").hide();
+				$(".goods-review").hide();
+			  });
+			}
+		}) 
+</script>
+</head>
+
+<body>
+	 <!------------------------------ 头部 ------------------------------>
+	 <div class="header clearfix">
+      <div class="header-classify left">
+        <ul>
+          <li><a href="index.html">可循环宝贝</a></li>
+
+
+        </ul>
+      </div>
+      <div class="header-sign left">
+        <div class="logo left pl25 mt5"><a href="index.html"><img src="${request.contextPath}/statics/images/logo.png"/></a></div>
+        <div class="user-sign right pl20">
+          <div class="initial-login clearfix" ><s></s><i></i><a href="login.html" class="login-text ml5">登录</a><a href="register.html" class="register-text  ml10">注册</a></div>
+          <div class="user-login clearfix" style="display:none;">
+            <s></s><i></i><em class="star-mar"><span>5</span></em><em class="more-mar"><span>5</span></em><a href="index.html" class="exit-login left ml5 mr10">退出登录</a><a href="bikun_MyGirIndex.html" class="portrait"><img src="${request.contextPath}/statics/images/small-head.jpg"/></a>
+          </div>
+      </div>
+     </div>
+    </div>
+	<!------------------------------ 头部end ------------------------------>
+
+	<!------------------------------ 订单详情 ------------------------------>
+
+	<div class="submit-order form-detail">
+    <div class="bekun-order ft14"><a href="#">我的bequeen</a>&nbsp;&gt;&nbsp;<a href="#">订单中心</a>&nbsp;&gt;&nbsp;订单号：1407032717</div>
+      <div class="details-title mt30"><a href="" class="order-print mr5 right">订单打印</a>订单号：1407032717    状态：完成</div>
+             
+    <h2 class="mt30 order-track">订单跟踪</h2>
+    <table width="100%" border="0" class="detail-tab mt10" cellspacing="0" cellpadding="0">
+<tr>
+<th>处理时间</th>
+<th>处理信息</th>
+<th>操作人</th>
+</tr>
+<tr>
+<td class="pt15">2014-05-07 23:51:56</td>
+<td class="pt15">您提交了订单，请等待系统确认</td>
+<td class="pt15">系统</td>
+</tr>
+<tr>
+<td>2014-05-07 23:52:09</td>
+<td>您的订单由于送货时间未到不能出库</td>
+<td>系统</td>
+</tr>
+<tr>
+<td>2014-05-08 04:12:38</td>
+<td>您的订单预计5月8日送达您手中</td>
+<td>系统</td>
+</tr>
+<tr>
+<td>2014-05-08 04:16:15</td>
+<td>您的订单已经进入北京4号库准备出库，不能修改</td>
+<td>李军宝</td>
+</tr>
+<tr>
+<td>2014-05-08 07:58:25</td>
+<td>您的订单已经打印完毕</td>
+<td>葛文建</td>
+</tr>
+<tr>
+<td>2014-05-08 08:11:51</td>
+<td>您的订单已经拣货完成</td>
+<td>郭冬花</td>
+</tr>
+<tr>
+<td>2014-05-08 08:23:55</td>
+<td>您的订单已通过扫描确认</td>
+<td>京东打</td>
+</tr>
+<tr>
+<td>2014-05-08 08:32:30</td>
+<td>您的订单已打包完毕</td>
+<td>包员</td>
+</tr>
+<tr>
+<td>2014-05-08 10:23:25</td>
+<td>您的订单在【北京双树分拣中心】分拣完成</td>
+<td>张清全</td>
+</tr>
+<tr>
+<td>2014-05-08 13:21:18</td>
+<td>您的订单在【北京双树分拣中心】发货完成，准备送往【大钟寺站】</td>
+<td>王利</td>
+</tr>
+<tr>
+<td>2014-05-08 15:25:53</td>
+<td>您的订单在【大钟寺站】验货完成，正在分配配送员</td>
+<td>阚龙</td>
+</tr>
+<tr>
+<td>2014-05-08 15:31:08</td>
+<td>配送员【穆豪杰】已出发，联系电话【18511873270 配送站电话：62121239】</td>
+<td>穆豪杰</td>
+</tr>
+
+<tr>
+<td>2014-05-08 16:30:04</td>
+<td>感谢您在京东购物，欢迎您再次光临！</td>
+<td>穆豪杰</td>
+</tr>
+
+<tr>
+<td colspan="3" class="pt20 pb15">送货方式：普通快递        <span class="pl35">承运人：bequeen快递</span>        <span class="pl35">货运单号：1407032717</span></td>
+</tr>
+</table>
+
+    <div class="order-details pt20">
+        <strong>订单信息</strong>
+         <h3>收货人信息</h3> 
+         <p>收  货  人: 张小健</p>
+         <p>地      址：北京海淀区三环到四环之间城铁大钟寺站中鼎大厦</p>
+         <p>手机号码：15313204268</p>
+      </div>
+      
+    <div class="invoice-details">
+         <h3>发票信息</h3> 
+         <p>发票类型: 电子发票</p>
+         <p>发票抬头：个人</p>
+         <p>发票内容：明细</p>
+    </div>
+    <h3><strong>商品清单</strong></h3>
+		<div class=" apply-info relet-info mt20">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <th class="good"><input type="checkbox"/>&nbsp;&nbsp;全选 <em class="ml20">商品</em> </th>
+                <th>价格(元/天)</th>
+                <th>日期</th>
+                <th>数量</th> 
+                <th>押金</th>               
+                <th>小计信息</th>
+                <th>操作</th>
+              </tr>
+              <tr>
+                <td>
+                  <dl class="clearfix">
+                    <dt><input type="checkbox" class="checkbox left" /><img src="${request.contextPath}/statics/images/bag-img4.jpg"></dt>
+                    <dd>MADISON麦迪逊压花皮革PINNACLE CARRIE手提包<span>成色 全新</span></dd>
+                  </dl>
+                </td>
+                <td><span class="price">￥177</span><br/><s class="ft14">￥556</s></td>
+                <td>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                  <p><em class="left">取包时间</em><input type="text" value="2014-3-2"/><s></s></p>
+                </td>
+                <td><a href="" class="clearfix ml35"><u></u><i>1</i><s></s></a></td> 
+                <td><span>￥50000</span></td>
+                <td><span class="has-background">￥1239</span></td> 
+                <td class="cz-content"><b class="wid72-div">续租</b><b class="wid72-div">归还</b>评论</td>                          
+              </tr>
+          </table>
+		</div>
+    
+    <div class="detail-card">
+   	  <h3 class="pt40"><span class="detail-add-icon">+</span>使用bequeen储值卡</h3>
+      <h3 class="mt30 pb25"><span>-</span>使用优惠券：<input type="text" value="输入优惠券号" class="wid136-input mr10"><a href="" class="card-btn mr10">使用</a>（你有2张500的优惠劵可以使用）</h3>      
+      
+    </div>
+    
+       <div class="small clearfix">
+    	<b></b>
+        <div>
+            <ul>
+                 <li>
+                   <img src="${request.contextPath}/statics/images/mon-img1.jpg">
+                   <p>编号：25156</p>
+                   <p>面值：￥500</p>
+                   <p>状态：拥有的</p>
+                   <p>有效期：2014年7月27日至2015年7月27日</p>
+                 </li>
+                 <li>
+                   <img src="${request.contextPath}/statics/images/mon-img1.jpg">
+                   <p>编号：35214</p>
+                   <p>面值：￥500</p>
+                   <p>状态：暂无</p>
+                   <p>有效期：2014年7月27日至2015年7月27日</p>
+                 </li>
+                 <li>
+                   <img src="${request.contextPath}/statics/images/mon-img1.jpg">
+                   <p>编号：65421</p>
+                   <p>面值：￥500</p>
+                   <p>状态：拥有的</p>
+                   <p>有效期：2014年7月27日至2015年7月27日</p>
+                 </li>
+                 <li>
+                   <img src="${request.contextPath}/statics/images/mon-img1.jpg">
+                   <p>编号：21245</p>
+                   <p>面值：￥500</p>
+                   <p>状态：拥有的</p>
+                   <p>有效期：2014年7月27日至2015年7月27日</p>
+                 </li>
+                 <li>
+                   <img src="${request.contextPath}/statics/images/mon-img1.jpg">
+                   <p>编号：21012</p>
+                   <p>面值：￥500</p>
+                   <p>状态：暂无</p>
+                   <p>有效期：2014年7月27日至2015年7月27日</p>
+                 </li>
+
+            </ul>
+        </div>
+        <s></s>
+	</div>
+    <div class="detail-card">
+          <h3 class="mt40"><span class="detail-add-icon"></span>使用积分：<input type="text" class="wid136-input mr10"><a href="" class="card-btn ml10 mr10">使用</a>（你的积分：1278分&nbsp; &nbsp; &nbsp;可使用：1278分）</h3>
+     </div>
+    
+    <p class="mt23"><span>1</span> 件商品 总商品金额：<b>￥332.00</b></p>
+		<p>租金：<b>￥166.00</b></p>
+    <p>押金：<b>￥166.00</b></p>
+    <p>运费：<b>-￥0.00</b></p>
+    <p>优惠券：<b>-￥10.00</b></p>
+    <p>使用<span>&nbsp;10&nbsp;</span>积分：<b>-￥10.00</b></p>
+    <p class="mt15"><em class="ft18">总金额（已免运费）：</em><b class="ft28">￥322</b></p>
+    <p class="mt20 mb125"><a href="#" class="now-pay ml10 right">取消订单</a><a href="#" class="now-pay right ml20">立即支付</a></p>  
+	</div>
+
+	<!------------------------------ 我的订单end ------------------------------>
+
+	 <!------------------------------ 尾部 ------------------------------>
+    <div class="fotbx pb70 clearfix pt30">
+            <ul>
+                <li><a href="">bequeen客服</a><span>|</span></li>
+                <li><a href="">服务保障</a><span>|</span></li>
+                <li><a href="">租赁指南</a><span>|</span></li>
+                <li><a href="">支付方式</a><span>|</span></li>
+                <li><a href="">配送方式</a><span>|</span></li>
+                <li><a href="">关于索赔</a><span>|</span></li>
+                <li><a href="">广告服务</a><span>|</span></li>
+                <li><a href="">友情链接</a><span>|</span></li>                 	
+                <li><a href="">手机bequeen</a></li>
+              </ul> 
+    </div>
+	<div class="footer">
+		<span>COPYRIGHT © 1998 – 2014 BIKUN. ALL RIGHTS RESERVED.</span>
+		<ul>
+			<li><a href="">服务条款</a></li>
+			<li><a href="">法律条款</a></li>
+			<li><a href="">隐私条款</a></li>
+		</ul>
+	</div>
+	<!------------------------------ 尾部end ------------------------------>
+
+	<!--固定浮动窗帘-->
+	<div class="fixed_float">
+		<div class="float_leftBox">
+			<s class="r_sj"></s>
+			<ul>
+				<li><a href="javascript:;" class="one"></a></li>
+				<li><a href="javascript:;" class="two"></a></li>
+				<li><a href="javascript:;" class="thr"></a></li>
+				<li><a href="javascript:;" class="four"></a></li>
+			</ul>
+		</div>
+		<div class="float_rightBox">
+			<ul>
+				<li><a href="my-cart.html" class="shopping_cart"></a><b>0</b></li>
+				<li><a href="javascript:;" class="heart"></a><b>0</b></li>
+				<li><a href="javascript:;" class="phone"></a></li>
+				<li><a href="javascript:;" class="share"></a></li>
+				<li><a href="javascript:;" class="Micro"></a></li>
+			</ul>
+		</div>
+	</div>
+    
+<!------------ 商品评论弹出遮罩 ------------>
+  <div class="mask" style="display: none;"></div>
+  <div class="goods-review" style="display: none;  top:30%; left:20%;">
+    <div class="goods-discuss"><h2>商品评论</h2><span></span></div>
+    <div class="review-content">
+        <dl class="no-success">
+          <dt></dt>
+          <dd>
+            <h3>抱歉，你的支付没有成功</h3>
+            <p>请你查看一下问题</p>
+          </dd>
+        </dl>
+        
+        <div class="tcenter pt40"><a href="" class="back-goods">返回</a></div>
+    </div>
+  </div>    
+</body>
+</html>
