@@ -1,0 +1,53 @@
+.item_list{position:relative;padding:0 0 50px;}
+.item{
+	width:300px;background:#fff;overflow:hidden;margin:0px;
+	box-shadow:0 1px 3px rgba(34, 25, 25, 0.2);	
+}
+.item_t{padding:0;}
+.item_t .img{background-color:#FFFFFF;margin:0 auto;position:relative;width:300px; min-height:210px;}
+.item_t .img a{display:block;}
+.item_t .img a:hover{background:#000;}
+.item_t .img a:hover img{filter:alpha(opacity=80);-khtml-opacity:0.8;opacity:0.8;-webkit-transition:all 0.3s ease-out;-khtml-transition:all 0.3s ease-out;}
+.item_t .price{
+	position:absolute;bottom:10px;right:0px;background-color:rgba(0, 0, 0, 0.2);color:#FFF;
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#33000000, endcolorstr=#33000000);
+}
+.item .btns{display:none;}
+.img_album_btn{top:0px;right:0px;position:absolute;background:#ff6fa6;color:#ffffff;height:20px;line-height:20px;width:56px;border-radius:3px;}
+.img_album_btn:hover{color:#fff;}
+.item_t .title{ width:300px; text-align:center; height:16px; overflow:hidden; font-size:12px;line-height:18px; margin-top:10px;}
+.item_b{width:290px;position:relative; padding:10px 0px 8px 8px;}
+.item_b .dl1{height:40px;width: 150px;background: #fff;}
+.dl1 dt{float: left;width:38px;margin-right:6px;}
+.dl1 dd{float: left;padding-top:1px;}
+.dl1 dd span{display:block;height:18px;}
+.dl2{width: 32px;position: absolute; right: 6px;bottom: 5px;}
+.dl2 dt{float: left;margin-right: 5px;}
+.dl2 dd{float: left;font-size:13px;}
+/* more */
+#more{display:block;margin:10px auto 20px;}
+
+/* infscr-loading */
+#infscr-loading{bottom:-10px;left:45%;position:absolute;text-align:center;height:20px;line-height:20px;z-index:100;width:120px;}
+
+/* page */
+.page{display:none;font-size:18px;height:60px;text-align:center;margin:20px 0 0 0;}
+.page_num a,.page_num span{margin:0 2px;background:url("images/page.png") no-repeat;display:inline-block;width:30px;height:28px;line-height:26px;overflow:hidden;}
+.page_num a{background-position:-65px 0;color:#FF3333;overflow:hidden;}
+.page_num .prev{background-position:1px -33px;}
+.page_num .unprev{background-position:1px 0;cursor:default;}
+.page_num .next{background-position:-32px 0;}
+.page_num .unnext{background-position:-32px -33px;cursor:default;}
+.page_num .current{background-position:-99px 0;color:#FFFFFF;}
+.page_num .etc{background-position:-172px 8px;}
+
+/* to_top */
+.to_top a,.to_top a:hover{background:url("images/gotop.png") no-repeat}
+.to_top a{
+	background-position:0 0;float:left;height:50px;overflow:hidden;width:50px;position:fixed;bottom:35px;cursor:pointer;right:20px;
+	_position:absolute;
+	_right:auto;
+	_left:expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft, 10)||0)-(parseInt(this.currentStyle.marginRight, 10)||20));
+	_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||20)-(parseInt(this.currentStyle.marginBottom, 10)||20)));
+}
+.to_top a:hover{background-position:-51px 0px;}
