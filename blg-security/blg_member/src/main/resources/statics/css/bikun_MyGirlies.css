@@ -221,7 +221,7 @@ h5.myGir_tith5 .more a {font-size: 14px;color: #282828;}
 .return_instructions p span {display: block;float:left;width: 105px;text-align: right;margin-right:10px;}
 .return_instructions p em {margin-right:10px;}
 .return_instructions .returnBnt {margin-left: 70px;margin-top:20px;}
-.return_instructions .returnBnt1 {margin-top: 20px;margin-left:;}
+.return_instructions .returnBnt1 {margin-top: 20px;margin-left:0px;}
 
 /*----------------------------------------------寄租返还申请的样式--------------------------------------*/
 .returnB50 {margin-bottom: 50px;}
@@ -393,7 +393,7 @@ h5.myGir_tith5 .more a {font-size: 14px;color: #282828;}
 .myNews_box {border:1px #bfbfbf solid;margin-top:30px;}
 .myNews_box .myEvaliation_nav {margin:auto;}
 .myNews_box .myEvaliation_nav .evalLeft span {position: relative;}
-.myNews_box .myEvaliation_nav .evalLeft span code {position: absolute;font-size: 15px;font-weight:bold;color: #fff;top:-7px;right: 10;}
+.myNews_box .myEvaliation_nav .evalLeft span code {position: absolute;font-size: 15px;font-weight:bold;color: #fff;top:-7px;right: 10px;}
 .myNews_cont .my_NewsTit {padding: 10px 0;}
 .myNews_cont .my_NewsTit p {float: left;margin-left:25px;color:#1f1d1d; font-size: 12px;}
 .myNews_cont .new_chekbox {border:1px #c8c8c8 solid;width: 14px;height: 14px;margin-right: 10px;float:left;vertical-align: middle;}
