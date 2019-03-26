@@ -50,31 +50,6 @@
 				return true;
 			}
 		}
-		function to_remember(){
-			var userId="";
-			var rememberName="";
-			var strCookie=document.cookie;
-			var arrCookie=strCookie.split("; ");
-			for(var i=0;i<arrCookie.length;i++){
-				var arr=arrCookie[i].split("=");
-				if("UserId"==arr[0]){
-					userId=arr[1];
-					break;
-				}
-			}
-			for(var i=0;i<arrCookie.length;i++){
-				var arr=arrCookie[i].split("=");
-				if("RememberName"==arr[0]){
-					rememberName=arr[1];
-					break;
-				}
-			}
-			if(userId!=null && userId!=""){
-				document.getElementById("loginName").value = userId;
-			}if(rememberName=="true" ){
-				document.getElementById("rememberName").checked = "checked";
-			}
-		}
 	</script>
 </head>
 <body>

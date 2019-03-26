@@ -2,8 +2,6 @@ package io.blg.modules.order.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import io.blg.common.validator.group.AddGroup;
-import io.blg.common.validator.group.UpdateGroup;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;

@@ -110,13 +110,19 @@ public class MemberController extends AbstractController {
 	/**
 	 * 保存用户
 	 */
-	@SysLog("保存用户")
-	@RequestMapping("member/saveMember")
-	public R save(@RequestBody SysUserEntity user){
-		System.out.println(user.getUsername());
-		
+	@ResponseBody
+	@RequestMapping(value = "/member/saveMember", method = RequestMethod.POST)
+	public R save(String username,String mobile,String password,String email){
+		SysUserEntity user =new SysUserEntity();
+		user.setUsername(username);
+		user.setMobile(mobile);
+		user.setPassword(password);
+		user.setEmail(email);
+		//会员用户默认都是这个部门
+		user.setDeptId(6l);
+		//有效
+		user.setStatus(1);
 		sysUserService.save(user);
-		
 		return R.ok();
 	}
 	

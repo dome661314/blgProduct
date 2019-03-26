@@ -46,7 +46,6 @@ public class OrderController extends AbstractController {
      */
     @SysLog("保存订单信息")
     @RequestMapping("/save")
-    @RequiresPermissions("blg:order:save")
     public R save(@RequestBody OrderEntity order) {
         //校验类型
         ValidatorUtils.validateEntity(order);

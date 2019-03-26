@@ -483,6 +483,19 @@ create table blg_order_item
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单明细表';
 
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (41, 0, '业务管理', NULL, NULL, 0, 'fa fa-thumbs-o-up', 2);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (42, 41, '商品信息管理', 'modules/prod/prod.html', NULL, 1, 'fa fa-shopping-bag', 1);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (43, 41, '订单管理', 'modules/order/order.html', NULL, 1, 'fa fa-shopping-basket', 2);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (44, 41, '用户地址管理', 'modules/sys/userAddress.html', NULL, 1, 'fa fa-id-card', 2);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (45, 42, '查看', NULL, 'blg:prod:list,blg:prod:info', 2, NULL, 0);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (46, 42, '修改', NULL, 'blg:prod:update', 2, NULL, 0);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (47, 42, '删除', NULL, 'blg:prod:delete', 2, NULL, 0);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (48, 42, '新增', NULL, 'blg:prod:save', 2, NULL, 0);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (49, 43, '查看', NULL, 'blg:order:list,blg:order:info', 2, NULL, 0);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (50, 43, '修改', NULL, 'blg:order:update', 2, NULL, 0);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (51, 44, '查看', NULL, 'sys:userAddress:list,sys:userAddress:info', 2, NULL, 0);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (52, 44, '修改', NULL, 'sys:userAddress:update', 2, NULL, 0);
+INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (53, 44, '删除', NULL, 'sys:userAddress:delete', 2, NULL, 0);
 
 
 

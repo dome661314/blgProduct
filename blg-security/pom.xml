@@ -20,6 +20,7 @@
         <module>blg-admin</module>
         <module>blg-api</module>
         <module>blg-generator</module>
+        <module>blg-member</module>
     </modules>
 
     <properties>
