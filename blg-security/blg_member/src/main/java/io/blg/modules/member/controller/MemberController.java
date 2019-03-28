@@ -17,25 +17,30 @@
 package io.blg.modules.member.controller;
 
 
-import io.blg.common.annotation.SysLog;
-import io.blg.common.utils.PageUtils;
+import io.blg.common.utils.OrderCodeFactory;
 import io.blg.common.utils.R;
-import io.blg.common.validator.Assert;
-import io.blg.common.validator.ValidatorUtils;
-import io.blg.common.validator.group.AddGroup;
-import io.blg.common.validator.group.UpdateGroup;
-import io.blg.modules.member.service.SysUserRoleService;
-import io.blg.modules.member.service.SysUserService;
 import io.blg.modules.member.entity.SysUserEntity;
+import io.blg.modules.member.entity.UserAddressEntity;
+import io.blg.modules.member.service.SysUserService;
+import io.blg.modules.member.service.UserAddressService;
 import io.blg.modules.member.shiro.ShiroUtils;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+import io.blg.modules.order.entity.OrderEntity;
+import io.blg.modules.order.entity.OrderItemEntity;
+import io.blg.modules.order.service.OrderItemService;
+import io.blg.modules.order.service.OrderService;
+import io.blg.modules.prod.entity.ProductEntity;
+import io.blg.modules.prod.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 系统用户
@@ -44,69 +49,40 @@ import java.util.Map;
 
  * @date 2016年10月31日 上午10:40:10
  */
-@RestController
+@Controller
 public class MemberController extends AbstractController {
 	@Autowired
 	private SysUserService sysUserService;
 	@Autowired
-	private SysUserRoleService sysUserRoleService;
-	
-	/**
-	 * 所有用户列表
-	 */
-	@RequestMapping("/list")
-	@RequiresPermissions("sys:user:list")
-	public R list(@RequestParam Map<String, Object> params){
-		PageUtils page = sysUserService.queryPage(params);
+	private ProductService productService;
+	@Autowired
+	private UserAddressService userAddressService;
+	@Autowired
+	private OrderService orderService;
+	@Autowired
+	private OrderItemService orderItemService;
 
-		return R.ok().put("page", page);
-	}
-	
 	/**
-	 * 获取登录的用户信息
+	 * 所有产品信息
 	 */
-	@RequestMapping("/info")
-	public R info(){
-		return R.ok().put("user", getUser());
+	@ResponseBody
+	@RequestMapping(value = "/member/index", method = RequestMethod.POST)
+	public Object index(){
+		List<ProductEntity> prodList = productService.selectList(null);
+		return prodList;
 	}
-	
-	/**
-	 * 修改登录用户密码
-	 */
-	@SysLog("修改密码")
-	@RequestMapping("/password")
-	public R password(String password, String newPassword){
-		Assert.isBlank(newPassword, "新密码不为能空");
 
-		//原密码
-		password = ShiroUtils.sha256(password, getUser().getSalt());
-		//新密码
-		newPassword = ShiroUtils.sha256(newPassword, getUser().getSalt());
-				
-		//更新密码
-		boolean flag = sysUserService.updatePassword(getUserId(), password, newPassword);
-		if(!flag){
-			return R.error("原密码不正确");
-		}
-		
-		return R.ok();
-	}
-	
 	/**
-	 * 用户信息
+	 * 获取单个产品信息
 	 */
-	@RequestMapping("/info/{userId}")
-	@RequiresPermissions("sys:user:info")
-	public R info(@PathVariable("userId") Long userId){
-		SysUserEntity user = sysUserService.selectById(userId);
-		
-		//获取用户所属的角色列表
-		List<Long> roleIdList = sysUserRoleService.queryRoleIdList(userId);
-		user.setRoleIdList(roleIdList);
-		
-		return R.ok().put("user", user);
+	@RequestMapping(value = "/prodDetail", method = RequestMethod.GET)
+	public String detail(Long id,ModelMap map){
+		ProductEntity prod = productService.selectById(id);
+		map.addAttribute("prod",prod);
+		return "product-lists.html";
 	}
-	
+
+
 	/**
 	 * 保存用户
 	 */
@@ -125,38 +101,139 @@ public class MemberController extends AbstractController {
 		sysUserService.save(user);
 		return R.ok();
 	}
-	
+
 	/**
-	 * 修改用户
+	 * 轻松租
 	 */
-	@SysLog("修改用户")
-	@RequestMapping("/update")
-	@RequiresPermissions("sys:user:update")
-	public R update(@RequestBody SysUserEntity user){
-		ValidatorUtils.validateEntity(user, UpdateGroup.class);
+	@RequestMapping(value = "/rent", method = RequestMethod.GET)
+	public String rent(Long prodId,ModelMap map){
+		ProductEntity prod = productService.selectById(prodId);
+		SysUserEntity user = ShiroUtils.getUserEntity();
+		UserAddressEntity userAddressEntity = userAddressService.findAddrByUser(Long.valueOf(user.getUserId()));
+		map.addAttribute("userAddr",userAddressEntity);
+		map.addAttribute("user",user);
+		map.addAttribute("prod",prod);
+		return "invoice-style.html";
+	}
 
-		sysUserService.update(user);
-
+	/**
+	 * 保存用户地址
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/member/addUserAddr", method = RequestMethod.POST)
+	public R save(String receiveName, String receiveMobile, String address, String postalCode, String province, String city, String county,String userId,String username){
+		UserAddressEntity userAddressEntity =new UserAddressEntity();
+		userAddressEntity.setCreateDate(new Date());
+		userAddressEntity.setAddress(address);
+		userAddressEntity.setCity(city);
+		userAddressEntity.setCounty(county);
+		userAddressEntity.setPostalCode(postalCode);
+		userAddressEntity.setProvince(province);
+		userAddressEntity.setReceiveMobile(receiveMobile);
+		userAddressEntity.setUserId(Long.valueOf(userId));
+		userAddressEntity.setUserName(username);
+		userAddressEntity.setReceiveName(receiveName);
+		userAddressEntity.setIsDefault("0");
+		userAddressService.save(userAddressEntity);
 		return R.ok();
 	}
-	
-	/**
-	 * 删除用户
-	 */
-	@SysLog("删除用户")
-	@RequestMapping("/delete")
-	@RequiresPermissions("sys:user:delete")
-	public R delete(@RequestBody Long[] userIds){
-		if(ArrayUtils.contains(userIds, 1L)){
-			return R.error("系统管理员不能删除");
-		}
-		
-		if(ArrayUtils.contains(userIds, getUserId())){
-			return R.error("当前用户不能删除");
-		}
 
-		sysUserService.deleteBatchIds(Arrays.asList(userIds));
-		
+
+	/**
+	 * 获取用户地址信息
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/member/findUserAddr", method = RequestMethod.POST)
+	public Object findUserAddr(String userId){
+		UserAddressEntity userAddr = userAddressService.findAddrByUser(Long.valueOf(userId));
+		return userAddr;
+	}
+
+
+	@ResponseBody
+	@RequestMapping(value = "/member/createOrder", method = RequestMethod.POST)
+	public Map<String,Object> createOrder(String userId, String prodId, String dayNum, String startDate, String endDate, String addressId) throws ParseException {
+		Map<String,Object> dataMap = new HashMap<>();
+		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-DD");
+		ProductEntity prod = productService.selectById(Long.valueOf(prodId));
+		OrderEntity orderEntity = new OrderEntity();
+		orderEntity.setOrderDate(new Date());
+		orderEntity.setOrderNo(OrderCodeFactory.getOrderCode());
+		orderEntity.setOrderStatus("1");
+		orderEntity.setUserId(Long.valueOf(userId));
+		orderEntity.setTotalPrice(prod.getDeposit().add(prod.getProdPrice().multiply(new BigDecimal(dayNum))));
+		orderEntity.setAddressId(Long.valueOf(addressId));
+		boolean result = orderService.save(orderEntity);
+		if(result) {
+			OrderItemEntity orderItemEntity = new OrderItemEntity();
+			orderItemEntity.setOrderId(orderEntity.getId());
+			orderItemEntity.setProdId(Long.valueOf(prodId));
+			orderItemEntity.setProdName(prod.getProdName());
+			orderItemEntity.setProdNum(1);
+			orderItemEntity.setProdPrice(prod.getProdPrice());
+			orderItemEntity.setRentStartDate(format.parse(startDate));
+			orderItemEntity.setRentEndDate(format.parse(endDate));
+			orderItemService.save(orderItemEntity);
+		}
+		dataMap.put("id",orderEntity.getId());
+		return dataMap;
+	}
+
+	@RequestMapping(value = "/generated", method = RequestMethod.GET)
+	public String generated(Long orderId,ModelMap map){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+		OrderEntity orderEntity = orderService.selectById(orderId);
+		SysUserEntity user = ShiroUtils.getUserEntity();
+		map.addAttribute("order",orderEntity);
+		map.addAttribute("user",user);
+		map.addAttribute("orderDate",format.format(orderEntity.getOrderDate()));
+		return "order-generated.html";
+	}
+
+
+	@RequestMapping(value = "/orderDetail", method = RequestMethod.GET)
+	public String orderDetail(Long orderId,ModelMap map){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+		OrderEntity orderEntity = orderService.selectById(orderId);
+		OrderItemEntity orderItemEntity = orderItemService.getItemById(orderId);
+		SysUserEntity user = ShiroUtils.getUserEntity();
+		UserAddressEntity userAddr = userAddressService.findAddrByUser(user.getUserId());
+		ProductEntity productEntity = productService.selectById(orderItemEntity.getProdId());
+		map.addAttribute("order",orderEntity);
+		map.addAttribute("user",user);
+		map.addAttribute("item",orderItemEntity);
+		map.addAttribute("orderDate",format.format(new Date()));
+		map.addAttribute("userAddr",userAddr);
+		map.addAttribute("prod",productEntity);
+		map.addAttribute("startDate",format.format(orderItemEntity.getRentStartDate()));
+		map.addAttribute("endDate",format.format(orderItemEntity.getRentEndDate()));
+		return "order-detail.html";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/member/cancelOrder", method = RequestMethod.POST)
+	public R cancelOrder(Long id){
+		OrderEntity orderEntity =orderService.selectById(id);
+		if(orderEntity!=null){
+			orderEntity.setOrderStatus("-1");
+			orderService.update(orderEntity);
+		}else{
+			R.error("订单取消失败");
+		}
 		return R.ok();
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/member/payOrder", method = RequestMethod.POST)
+	public R payOrder(Long id){
+		OrderEntity orderEntity =orderService.selectById(id);
+		if(orderEntity!=null){
+			orderEntity.setOrderStatus("2");
+			orderService.update(orderEntity);
+		}else{
+			R.error("订单支付失败");
+		}
+		return R.ok();
+	}
+
 }

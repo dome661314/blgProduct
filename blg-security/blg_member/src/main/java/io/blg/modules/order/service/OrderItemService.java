@@ -25,4 +25,18 @@ public interface OrderItemService extends IService<OrderItemEntity> {
      * @return
      */
     List<OrderItemEntity> selectItemList(long id);
+
+    /**
+     * 订单单身信息保存
+     *
+     * @param orderItemEntity
+     */
+    void save(OrderItemEntity orderItemEntity);
+
+    /**
+     * 通过订单ID获取订单单身信息
+     * @param orderId
+     * @return
+     */
+    OrderItemEntity getItemById(Long orderId);
 }

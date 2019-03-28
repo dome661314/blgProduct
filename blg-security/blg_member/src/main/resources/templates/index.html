@@ -13,6 +13,24 @@
 	<script type="text/javascript">
 		$(function() {
 			$("#top").load("head.html");
+			$.ajax({
+				async : false,
+				cache : false,
+				timeout: 1000,
+				url: 'http://localhost:8081/blg-member/member/index',
+				type: "post",
+				success: function(data){
+					var divA = document.getElementById("prodShow");
+					for(var i=0;i< data.length;i++){
+						var str1 ='';
+						var str="<dl><dt><a href=''><img src='"+data[i].imagePath+"'/></a></dt><dd class='price'><b>￥"+data[i].prodPrice+"/</b>天</dd> <dd>"+data[i].prodName+"</dd> <dd class='active'><a href='http://localhost:8081/blg-member/prodDetail?id="+data[i].id+"'>详细特征</a></dd></dl>";
+						if((i+1)%5==0) {
+							str1 = "</div><div>"
+						}
+						divA.innerHTML=divA.innerHTML+str+str1;
+					}
+				}
+			});
 		})
 	</script>
 </head>
@@ -20,7 +38,7 @@
 <div class="header clearfix" id="top"></div>
 	<div class="main clearfix">
 		<div class="left l">
-			<p class="pt25 pl10 pb20 tit-x"><img src="${request.contextPath}/statics/images/title.jpg" alt=""></p>
+			<p class="pt25 pl10 pb20 tit-x"></p>
 			<div class="nav">
 				<a href="index.html" class="active">可循环宝贝</a>
 
@@ -28,225 +46,20 @@
 				<p class="btn"><span class="allow rIcon"></span></p>
 			</div>
 		</div>
+
 		<div class="right r">
-			<!--内容-->
-<!--			<ul class="header">
-				<li class="img"><img src="images/asd_r1_c1.jpg"></li>
-				<li class="img"><img src="images/asd_r1_c3.jpg"></li>
-				<li><a href="login.html">登录</a></li>
-				<li><a href="register.html">注册</a></li>
-	        </ul>-->
 	        <!--焦点图begin-->
 	        <div class="focus">
 	        			<div class="button" id="prev"></div>
 	        			<div class="foc-box">
 	        				<div class="pic-wrap">
-	        					<div>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c1.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c3.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c5.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c7.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c9.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					</div>
-	        				<div>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c1.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c3.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c5.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c7.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c9.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        				</div>
-	        				<div>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c1.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c3.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c5.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c7.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c9.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        				</div>
-	        				<div>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c1.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c3.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c5.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c7.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c9.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        				</div>
-	        				<div>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c1.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c3.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c5.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c7.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
-	        					<dl>
-	        						<dt><img src="${request.contextPath}/statics/images/focus_r1_c9.jpg" ></dt>
-	        						<dd class="price">￥470.00/天</dd>
-									<dd>CAPU中号手袋</dd>
-									<dd><a href="product-lists.html">详细特征</a></dd>
-	        					</dl>
+	        					<div id="prodShow">
 	        				</div>
 	        			</div>
 	        			</div>
 	        			<div class="button" id="next"></div>
-	        			<ul class="num-nav">
-	        				<li class="on"></li>
-	        				<li></li>
-	        				<li></li>
-	        				<li></li>
-	        				<li></li>
-	        			</ul>
 	        		</div>
-	        <!--底部内容-->
-	        <div class="bot-info">
-	        	<dl class="bot-left">
-	        		<dt><img src="${request.contextPath}/statics/images/pic.jpg" alt=""></dt>
-	        		<dd>
-	        			<div class="top-tit">
-	        				<span>商品租赁平台 开业活动</span>
-	        				<span>商品租赁平台 开业活动</span>
-	        				<span>商品租赁平台 开业活动</span>
-	        			</div>
-	        			<p class="text">BE QUEEN开业活动,2014秋季新款全面来袭，<br>全面来袭全面来袭全面来袭全面来袭全面来袭<br>全面来袭全面来袭全面来袭全面来</p>
-	        			<div class="more"><a href="#">活动详情</a></div>
-	        			<p class="btns">
-	        				<span id="prev-pic"></span>
-	        				<span id="next-pic"></span>
-	        			</p>
-	        		</dd>
-	        	</dl>
-	        	<div class="bot-right"><img src="${request.contextPath}/statics/images/vodeo.jpg" alt=""></div>
-	        </div>
-            
-	 <!------------------------------ 尾部 ------------------------------>
-    <div class="fotbx pb70 pt40">
-            <ul>
-                <li><a href="">bequeen客服</a><span>|</span></li>
-                <li><a href="">服务保障</a><span>|</span></li>
-                <li><a href="">租赁指南</a><span>|</span></li>
-                <li><a href="">支付方式</a><span>|</span></li>
-                <li><a href="">配送方式</a><span>|</span></li>
-                <li><a href="">关于索赔</a><span>|</span></li>
-                <li><a href="">广告服务</a><span>|</span></li>
-                <li><a href="">友情链接</a><span>|</span></li>                 	
-                <li><a href="">手机bequeen</a></li>
-              </ul> 
-    </div>
+
 	<div class="footer">
 		<span>COPYRIGHT © 1998 – 2014 BIKUN. ALL RIGHTS RESERVED.</span>
 		<ul>
@@ -254,132 +67,11 @@
 			<li><a href="">法律条款</a></li>
 			<li><a href="">隐私条款</a></li>
 		</ul>
-	</div>
 	<!------------------------------ 尾部end ------------------------------>
-            
-			<!--弹出层 begin-->
-			<div class="layer">
-				<div class="type-nav">
-					<span class="close"></span>
-					<p class="tit"><img src="${request.contextPath}/statics/images/tit.png" alt=""></p>
-					<ul class="type">
-						<li class="mb30"><a href="javascript:void(0)">ARMANI阿玛尼</a></li>
-						<li><a href="javascript:void(0)">BURBERRY巴宝莉</a></li>
-						<li><a href="javascript:void(0)">BALLY巴利</a></li>
-						<li><a href="javascript:void(0)">BALENCIAGA</a></li>
-						<li><a href="javascript:void(0)">BOTIEGA VENETA</a></li>
-						<li class="mb30"><a href="javascript:void(0)">COACH 蔻驰</a></li>
-						<li><a href="javascript:void(0)">Calvin Klein凯文克莱</a></li>
-						<li class="mb30"><a href="javascript:void(0)">DOLCE&GABBANA</a></li>
-						<li><a href="javascript:void(0)">DKNY琪娜凯伦</a></li>
-					</ul>
-					<ol class="mt45 mb20">
-						<li><a href="#">隐私条款</a></li>
-						<li><a href="#">法律条款</a></li>
-						<li><a href="#">服务条款</a></li>
-					</ol>
-					<ol>
-						<li><a href="#">COPYRIGHT &copy;</a></li>
-						<li><a href="#">1988-2014 ALL RIGHT</a></li>
-						<li><a href="#">RIGHTS RESSERVER</a></li>
-					</ol>
-				</div>
-				<div class="sma-layer">
-					<p id="toggle-btn" class="toggle-btn"><span class="allow lIcon lx"></span></p>
-					<div class="smar">
-					<div class="pic-box">
-						<span class="up-btn"></span>
-						<div class="pic-list">
-							<div class="pics">
-								<div>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_01.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_02.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_03.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_04.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-								</div>
-								<div>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_05.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_06.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_03.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_04.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-								</div>
-								<div>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_05.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_06.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_01.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-									<dl>
-										<dt><img src="${request.contextPath}/statics/images/t_02.jpg" alt=""></dt>
-										<dd class="price">￥470.00/天</dd>
-										<dd>CAPU中号手袋</dd>
-										<dd><a href="#">详细特征</a></dd>
-									</dl>
-								</div>
-							</div>
-						</div>
-						<span class="down-btn"></span>
-					</div>
-					<div class="line"><span id="notice"></span></div>
-					</div>
-				</div>
-			</div>
-			<!--弹出层 end-->
+
 		</div>
 		<div class="aside"></div>
+	</div>
 	</div>
 </body>
 </html>

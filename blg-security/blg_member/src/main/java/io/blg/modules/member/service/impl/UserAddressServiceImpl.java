@@ -9,10 +9,12 @@ import io.blg.modules.member.dao.UserAddressDao;
 import io.blg.modules.member.entity.UserAddressEntity;
 import io.blg.modules.member.service.UserAddressService;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * blg-security
@@ -24,6 +26,8 @@ import java.util.HashMap;
 @Service("userAddressService")
 public class UserAddressServiceImpl extends ServiceImpl<UserAddressDao, UserAddressEntity> implements UserAddressService {
 
+    @Autowired
+    private UserAddressDao userAddressDao;
 
     @Override
     public PageUtils queryPage(HashMap<String, Object> paramMap) {
@@ -47,5 +51,10 @@ public class UserAddressServiceImpl extends ServiceImpl<UserAddressDao, UserAddr
     public void update(UserAddressEntity userAddress) {
         userAddress.setUpdateDate(new Date());
         this.updateById(userAddress);
+    }
+
+    @Override
+    public UserAddressEntity findAddrByUser(Long userId) {
+        return userAddressDao.selectAddrByUser(userId);
     }
 }

@@ -64,7 +64,7 @@ public class MemberLoginController {
 
     @ResponseBody
     @RequestMapping(value = "/member/fetchUserHead", method = RequestMethod.POST)
-    public SysUserEntity login(String type) {
+    public SysUserEntity login() {
         SysUserEntity user = ShiroUtils.getUserEntity();
         return user;
     }

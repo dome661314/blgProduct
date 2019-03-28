@@ -61,7 +61,16 @@ public class ProductEntity {
 
     private Date updateDate;
 
+    @NotBlank(message="商品品牌不能为空")
+    private String prodBrand;
 
+    private BigDecimal deposit;
+
+    private String prodPlace;
+
+    private String prodCondition;
+
+    private String imagePath;
 
 
 

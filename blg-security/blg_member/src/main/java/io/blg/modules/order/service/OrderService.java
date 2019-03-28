@@ -28,7 +28,7 @@ public interface OrderService extends IService<OrderEntity> {
      *
      * @param product
      */
-    void save(OrderEntity product);
+    boolean save(OrderEntity product);
 
     /**
      * 订单信息修改

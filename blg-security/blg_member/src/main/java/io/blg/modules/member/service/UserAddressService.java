@@ -5,6 +5,7 @@ import io.blg.common.utils.PageUtils;
 import io.blg.modules.member.entity.UserAddressEntity;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * blg-security
@@ -37,4 +38,10 @@ public interface UserAddressService extends IService<UserAddressEntity> {
      * @param userAddress
      */
     void update(UserAddressEntity userAddress);
+
+    /**
+     * 根据用户ID获取用户地址
+     * @return
+     */
+    UserAddressEntity findAddrByUser(Long userId);
 }

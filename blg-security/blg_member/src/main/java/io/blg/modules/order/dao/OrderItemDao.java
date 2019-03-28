@@ -15,11 +15,5 @@ import java.util.List;
 public interface OrderItemDao extends BaseMapper<OrderItemEntity> {
 
 
-    /**
-     * 根据订单ID查找订单明细
-     * @param id
-     * @return
-     */
-    List<OrderItemEntity> queryListByOrderId(long id);
-
+    OrderItemEntity selectItemById(Long orderId);
 }

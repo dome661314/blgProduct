@@ -10,30 +10,16 @@
 	<link href="${request.contextPath}/statics/css/login.css" rel="stylesheet">
 	<script src="${request.contextPath}/statics/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="${request.contextPath}/statics/js/bikun.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#top").load("head.html");
+		})
+	</script>
 </head>
 
 
 <body>
-	 <!------------------------------ 头部 ------------------------------>
-	 <div class="header clearfix">
-      <div class="header-classify left">
-        <ul>
-          <li><a href="index.html">可循环宝贝</a></li>
-
-
-        </ul>
-      </div>
-      <div class="header-sign left">
-        <div class="logo left pl25 mt5"><a href="index.html"><img src="${request.contextPath}/statics/images/logo.png"/></a></div>
-        <div class="user-sign right pl20">
-          <div class="initial-login clearfix" ><s></s><i></i><a href="login.html" class="login-text ml5">登录</a><a href="#" class="register-text  ml10">注册</a></div>
-          <div class="user-login clearfix" style="display:none;">
-            <s></s><i></i><em class="star-mar"><span>5</span></em><em class="more-mar"><span>5</span></em><a href="#" class="exit-login left ml5 mr10">退出登录</a><a href="bikun_MyGirIndex.html" class="portrait"><img src="${request.contextPath}/statics/images/small-head.jpg"/></a>
-          </div>
-      </div>
-     </div>
-    </div>
-	<!------------------------------ 头部end ------------------------------>
+<div class="header clearfix" id="top"></div>
 
 	<!------------------------------ 注册页面 ------------------------------>
 	<div class="register">
@@ -47,8 +33,6 @@
               <ul>
                 <li>返回</li>
                 <li><a href="index.html">首页<span>|</span></a></li>
-                <li><a href="shopping_cart_scholar.html">购物车<span>|</span></a></li>
-                <li><a href="my-order.html">我的订单</a></li>
               </ul>
             </dd>
           </dl>

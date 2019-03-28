@@ -10,58 +10,25 @@
 	<link href="${request.contextPath}/statics/css/login.css" rel="stylesheet">
 	<script src="${request.contextPath}/statics/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="${request.contextPath}/statics/js/bikun.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#top").load("head.html");
+		})
+	</script>
 </head>
 <body>
-	 <!------------------------------ 头部 ------------------------------>
-	 <div class="header clearfix">
-	      <div class="header-classify left">
-	        <ul>
-	          <li><a href="index.html">可循环宝贝</a></li>
-
-
-	        </ul>
-	      </div>
-	      <div class="header-sign left">
-	        <div class="logo left pl25 mt5"><a href="index.html"><img src="${request.contextPath}/statics/images/logo.png"/></a></div>
-	        <div class="user-sign right pl20">
-	          <div class="initial-login clearfix" ><s></s><i></i><a href="login.html" class="login-text ml5">登录</a><a href="register.html" class="register-text  ml10">注册</a></div>
-	          <div class="user-login clearfix" style="display:none;">
-	            <s></s><i></i><em class="star-mar"><span>5</span></em><em class="more-mar"><span>5</span></em><a href="index.html" class="exit-login left ml5 mr10">退出登录</a><a href="bikun_MyGirIndex.html" class="portrait"><img src="${request.contextPath}/statics/images/small-head.jpg"/></a>
-	          </div>
-	      	</div>
-	     </div>
-    </div>
-	<!------------------------------ 头部end ------------------------------>
-
-	
+<div class="header clearfix" id="top"></div>
 	<!------------------------------ 订单生成 ------------------------------>
 	<div class="order-generated">
 		<h2>订单生成页面</h2>
 		<p class="pt40">提示：<p/>
-		<p class="order-content">您<span>2014-08-05  15:22：00</span>在bequeen网站租赁名包一个：名称：MADISON麦迪逊系列真皮皮革CARLYLE
-已提交成功 提交的信息已生成订单：（单号：<span>5366521412555</span>）  请到我的订单中进行支付</p>
-		<div class="order-pay"><a href="order-detail.html">进入订单支付</a></div>
-		<p class="applay-back">您已申请好归还日期   2014-08-12   15:22;00   归还订单：（单号：25112552252121）到时候点击
-返还申请回出去信息号 直接点击确定返还即可</p>
+		<p class="order-content">您<span>${orderDate}</span>在商品租赁网站租赁的商品
+已提交成功 提交的信息已生成订单：（单号：<span>${order.orderNo}</span>）  请到我的订单中进行支付</p>
+		<div class="order-pay"><a href="http://localhost:8081/blg-member/orderDetail?orderId=${order.id}">进入订单支付</a></div>
 	</div>
 
 	<!------------------------------ 订单生成end ------------------------------>
 
-
-	 <!------------------------------ 尾部 ------------------------------>
-    <div class="fotbx pb70 clearfix pt30">
-            <ul>
-                <li><a href="">bequeen客服</a><span>|</span></li>
-                <li><a href="">服务保障</a><span>|</span></li>
-                <li><a href="">租赁指南</a><span>|</span></li>
-                <li><a href="">支付方式</a><span>|</span></li>
-                <li><a href="">配送方式</a><span>|</span></li>
-                <li><a href="">关于索赔</a><span>|</span></li>
-                <li><a href="">广告服务</a><span>|</span></li>
-                <li><a href="">友情链接</a><span>|</span></li>                 	
-                <li><a href="">手机bequeen</a></li>
-              </ul> 
-    </div>
 	<div class="footer">
 		<span>COPYRIGHT © 1998 – 2014 BIKUN. ALL RIGHTS RESERVED.</span>
 		<ul>

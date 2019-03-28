@@ -46,13 +46,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void save(OrderEntity order) {
+    public boolean save(OrderEntity order) {
         order.setCreateDate(new Date());
-        boolean result = this.insert(order);
-        if (result && !order.getItemList().isEmpty()) {
-            //保存订单单身信息
-            orderItemService.insertBatch(order.getItemList());
-        }
+        return  this.insert(order);
     }
 
     @Override

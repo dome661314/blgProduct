@@ -46,16 +46,25 @@ public class SysPageController {
 	}
 
 
+	@RequestMapping("submit-order.html")
+	public String address(){
+		return "submit-order";
+	}
+
 	@RequestMapping("my-order.html")
 	public String order(){
 		return "my-order";
+	}
+
+	@RequestMapping("invoice-style.html")
+	public String invoice(){
+		return "invoice-style";
 	}
 
 	@RequestMapping("product-lists.html")
 	public String product(){
 		return "product-lists";
 	}
-
 
 	@RequestMapping("register.html")
 	public String register(){
@@ -71,5 +80,17 @@ public class SysPageController {
 	public String notFound(){
 		return "error";
 	}
+
+	@RequestMapping("order-generated.html")
+	public String generated(){
+		return "order-generated";
+	}
+
+
+	@RequestMapping("order-detail.html")
+	public String orderDetail(){
+		return "order-detail";
+	}
+
 
 }
