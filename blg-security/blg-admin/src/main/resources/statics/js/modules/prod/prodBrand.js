@@ -1,23 +1,10 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: baseURL + 'blg/order/list',
+        url: baseURL + 'blg/prodBrand/list',
         datatype: "json",
         colModel: [
-            { label: '订单编号', name: 'orderNo', index: 'order_no', width: 80 },
-            { label: '下单日期', name: 'orderDate', index: 'order_date', width: 80 },
-            { label: '订单金额', name: 'totalPrice', index: 'total_price', width: 80 },
-            { label: '订单状态', name: 'orderStatus', width: 60, formatter: function(value, options, row){
-                    if(value == 2){
-                        return '<span class="label label-danger">已支付</span>'
-                    }
-                    if(value ==1){
-                        return '<span class="label label-danger">未支付</span>'
-                    }
-                    if(value ==-1){
-                        return '<span class="label label-danger">已取消</span>'
-                    }
-
-                }},
+            { label: '品牌编码', name: 'brandCode', index: 'brand_code', width: 80 },
+            { label: '品牌名称', name: 'brandName', index: 'brand_name', width: 80 }
         ],
         viewrecords: true,
         height: 385,
@@ -50,11 +37,11 @@ var vm = new Vue({
     el:'#rrapp',
     data:{
         q:{
-            orderNo: null
+            prodCode: null
         },
         showList: true,
         title: null,
-        order: {}
+        prodBrand: {}
     },
     methods: {
         query: function () {
@@ -63,7 +50,7 @@ var vm = new Vue({
         add: function(){
             vm.showList = false;
             vm.title = "新增";
-            vm.order = {};
+            vm.prodBrand = {};
         },
         update: function (event) {
             var id = getSelectedRow();
@@ -76,12 +63,12 @@ var vm = new Vue({
             vm.getInfo(id)
         },
         saveOrUpdate: function (event) {
-            var url = "blg/order/update";
+            var url = vm.prod.id == null ? "blg/prodBrand/save" : "blg/prodBrand/update";
             $.ajax({
                 type: "POST",
                 url: baseURL + url,
                 contentType: "application/json",
-                data: JSON.stringify(vm.order),
+                data: JSON.stringify(vm.prod),
                 success: function(r){
                     if(r.code === 0){
                         alert('操作成功', function(index){
@@ -102,7 +89,7 @@ var vm = new Vue({
             confirm('确定要删除选中的记录？', function(){
                 $.ajax({
                     type: "POST",
-                    url: baseURL + "blg/order/delete",
+                    url: baseURL + "blg/prodBrand/delete",
                     contentType: "application/json",
                     data: JSON.stringify(ids),
                     success: function(r){
@@ -118,17 +105,17 @@ var vm = new Vue({
             });
         },
         getInfo: function(id){
-            $.get(baseURL + "blg/order/info/"+id, function(r){
-                vm.order = r.order;
+            $.get(baseURL + "blg/prodBrand/info/"+id, function(r){
+                vm.prod = r.prod;
             });
         },
         reload: function (event) {
             vm.showList = true;
             var page = $("#jqGrid").jqGrid('getGridParam','page');
             $("#jqGrid").jqGrid('setGridParam',{
-                postData:{'orderNo': vm.q.orderNo},
+                postData:{'brandCode': vm.q.brandCode},
                 page:page
             }).trigger("reloadGrid");
-        }
+        },
     }
 });

@@ -11,13 +11,11 @@ import io.blg.modules.order.service.OrderService;
 import io.blg.modules.sys.controller.AbstractController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -28,7 +26,7 @@ import java.util.List;
  * @author zhengWei
  **/
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/blg//order")
 public class OrderController extends AbstractController {
 
     @Autowired
@@ -62,8 +60,8 @@ public class OrderController extends AbstractController {
      */
     @RequestMapping("/list")
     @RequiresPermissions("blg:order:list")
-    public R list() {
-        PageUtils page = orderService.queryPage(new HashMap<>());
+    public R list(@RequestParam Map<String, Object> params) {
+        PageUtils page = orderService.queryPage(params);
         return R.ok().put("page", page);
     }
 
@@ -90,12 +88,6 @@ public class OrderController extends AbstractController {
     @RequiresPermissions("blg:order:info")
     public R info(@PathVariable("id") Long id){
         OrderEntity order = orderService.selectById(id);
-        if(order!=null){
-            List<OrderItemEntity> list = orderItemService.selectItemList(order.getId());
-            if(list!=null && list.size()>0){
-                order.setItemList(list);
-            }
-        }
         return R.ok().put("order", order);
     }
 

@@ -5,6 +5,7 @@ import io.blg.common.utils.PageUtils;
 import io.blg.modules.order.entity.OrderEntity;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * blg-security
@@ -21,7 +22,7 @@ public interface OrderService extends IService<OrderEntity> {
      * @param paramMap
      * @return
      */
-    PageUtils queryPage(HashMap<String, Object> paramMap);
+    PageUtils queryPage(Map<String, Object> paramMap);
 
     /**
      * 订单信息保存

@@ -5,6 +5,7 @@ import io.blg.common.utils.PageUtils;
 import io.blg.modules.prod.entity.ProductEntity;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * blg-security
@@ -21,7 +22,7 @@ public interface ProductService extends IService<ProductEntity> {
      * @param paramMap
      * @return
      */
-    PageUtils queryPage(HashMap<String, Object> paramMap);
+    PageUtils queryPage(Map<String, Object> paramMap);
 
     /**
      * 商品信息保存

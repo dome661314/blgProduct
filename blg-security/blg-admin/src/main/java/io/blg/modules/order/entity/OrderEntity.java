@@ -31,13 +31,15 @@ public class OrderEntity {
     @NotBlank(message="订单金额不能为空")
     private BigDecimal totalPrice;
 
-    private List<OrderItemEntity> itemList = new ArrayList<>();
-
     @NotBlank(message="下单日期不能为空")
     private Date orderDate;
 
     @NotBlank(message="订单状态不能为空")
     private String orderStatus;
+
+    private Long userId;
+
+    private long addressId;
 
     private String createName;
 

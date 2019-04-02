@@ -13,7 +13,8 @@ $(function () {
             { label: '商品品牌', name: 'prodBrand', index: 'prod_brand', width: 80 },
             { label: '押金', name: 'deposit', index: 'deposit', width: 80 },
             { label: '商品产地', name: 'prodPlace', index: 'prod_place', width: 80 },
-            { label: '商品成色', name: 'condition', index: 'prod_condition', width: 80 },
+            { label: '商品成色', name: 'prodCondition', index: 'prod_condition', width: 80 },
+            { label: '商品图片', name: 'imagePath', index: 'image_path', width: 80 },
             { label: '商品状态', name: 'prodStatus', width: 60, formatter: function(value, options, row){
                     return value === 0 ?
                         '<span class="label label-danger">下架</span>' :
@@ -43,6 +44,26 @@ $(function () {
         gridComplete:function(){
             //隐藏grid底部滚动条
             $("#jqGrid").closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" });
+        }
+    });
+
+    new AjaxUpload('#upload', {
+        action: baseURL + "blg/prod/upload",
+        name: 'file',
+        autoSubmit:true,
+        responseType:"json",
+        onSubmit:function(file, extension){
+            if (!(extension && /^(jpg|jpeg|png|gif)$/.test(extension.toLowerCase()))){
+                alert('只支持jpg、png、gif格式的图片！');
+                return false;
+            }
+        },
+        onComplete : function(file, r){
+            if(r.code == 0){
+                vm.prod.imagePath = r.url;
+            }else{
+                alert(r.msg);
+            }
         }
     });
 });

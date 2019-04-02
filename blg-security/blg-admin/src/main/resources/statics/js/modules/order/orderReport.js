@@ -3,21 +3,9 @@ $(function () {
         url: baseURL + 'blg/order/list',
         datatype: "json",
         colModel: [
-            { label: '订单编号', name: 'orderNo', index: 'order_no', width: 80 },
+            { label: '订单量', name: 'id', index: 'id', width: 80 },
             { label: '下单日期', name: 'orderDate', index: 'order_date', width: 80 },
-            { label: '订单金额', name: 'totalPrice', index: 'total_price', width: 80 },
-            { label: '订单状态', name: 'orderStatus', width: 60, formatter: function(value, options, row){
-                    if(value == 2){
-                        return '<span class="label label-danger">已支付</span>'
-                    }
-                    if(value ==1){
-                        return '<span class="label label-danger">未支付</span>'
-                    }
-                    if(value ==-1){
-                        return '<span class="label label-danger">已取消</span>'
-                    }
-
-                }},
+            { label: '订单金额', name: 'totalPrice', index: 'total_price', width: 80 }
         ],
         viewrecords: true,
         height: 385,

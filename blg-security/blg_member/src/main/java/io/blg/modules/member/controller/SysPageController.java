@@ -40,6 +40,11 @@ public class SysPageController {
 		return "index";
 	}
 
+	@RequestMapping("index_new.html")
+	public String indexNew(){
+		return "index_new";
+	}
+
 	@RequestMapping("login.html")
 	public String login(){
 		return "login";
@@ -91,6 +96,12 @@ public class SysPageController {
 	public String orderDetail(){
 		return "order-detail";
 	}
+
+	@RequestMapping("phone-findpassword.html")
+	public String password(){
+		return "phone-findpassword";
+	}
+
 
 
 }

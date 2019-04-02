@@ -17,6 +17,7 @@ import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * blg-security
@@ -32,13 +33,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
     private OrderItemService orderItemService;
 
     @Override
-    public PageUtils queryPage(HashMap<String, Object> paramMap) {
-        String username = (String) paramMap.get("username");
+    public PageUtils queryPage(Map<String, Object> paramMap) {
+        String orderNo = (String) paramMap.get("orderNo");
 
         Page<OrderEntity> page = this.selectPage(
                 new Query<OrderEntity>(paramMap).getPage(),
                 new EntityWrapper<OrderEntity>()
-                        .like(StringUtils.isNotBlank(username), "username", username)
+                        .like(StringUtils.isNotBlank(orderNo), "order_no", orderNo)
         );
 
         return new PageUtils(page);
@@ -48,11 +49,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
     @Transactional(rollbackFor = Exception.class)
     public void save(OrderEntity order) {
         order.setCreateDate(new Date());
-        boolean result = this.insert(order);
-        if (result && !order.getItemList().isEmpty()) {
-            //保存订单单身信息
-            orderItemService.insertBatch(order.getItemList());
-        }
+        this.insert(order);
     }
 
     @Override

@@ -25,7 +25,7 @@ import java.util.HashMap;
  * @author zhengWei
  **/
 @RestController
-@RequestMapping("/blg/userAddress")
+@RequestMapping("/sys/userAddress")
 public class UserAddrController extends AbstractController {
 
     @Autowired

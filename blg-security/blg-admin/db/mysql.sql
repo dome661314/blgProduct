@@ -399,6 +399,7 @@ create table blg_user_address
    create_date          datetime comment '创建时间',
    update_name          varchar(64) comment '修改人',
    update_date          datetime comment '修改时间',
+   is_default           varchar(8) comment '是否默认',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARACTER SET utf8 COMMENT='用户地址表';
 
@@ -440,6 +441,7 @@ create table blg_product
    create_date          datetime comment '创建时间',
    update_name          varchar(64) comment '修改人',
    update_date          datetime comment '修改时间',
+   image_path           varchar(500) comment '图片路径',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品信息表';
 
@@ -451,6 +453,7 @@ create table blg_order
 (
    id                   bigint not null comment '主键',
    address_id           bigint comment '用户地址ID',
+   user_id              bigint comment '用户ID',
    order_no             varchar(64) not null comment '订单号',
    total_price          decimal(16,4) not null comment '订单价格',
    order_date           date not null comment '下单时间',
@@ -498,4 +501,16 @@ INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `pe
 INSERT INTO `blg_security`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (53, 44, '删除', NULL, 'sys:userAddress:delete', 2, NULL, 0);
 
 
+
+create table blg_prod_brand
+(
+   id                   bigint not null comment '主键',
+   brand_code           bigint comment '品牌编码',
+   brand_name              bigint comment '品牌名称',
+   create_name          varchar(64) comment '创建人',
+   create_date          datetime comment '创建时间',
+   update_name          varchar(64) comment '修改人',
+   update_date          datetime comment '修改时间',
+   primary key (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品品牌表';
 

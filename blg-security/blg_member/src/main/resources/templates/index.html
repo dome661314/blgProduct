@@ -23,7 +23,7 @@
 					var divA = document.getElementById("prodShow");
 					for(var i=0;i< data.length;i++){
 						var str1 ='';
-						var str="<dl><dt><a href=''><img src='"+data[i].imagePath+"'/></a></dt><dd class='price'><b>￥"+data[i].prodPrice+"/</b>天</dd> <dd>"+data[i].prodName+"</dd> <dd class='active'><a href='http://localhost:8081/blg-member/prodDetail?id="+data[i].id+"'>详细特征</a></dd></dl>";
+						var str="<dl><dt><a href=''><img src='"+data[i].imagePath+"' width=160px height=180px /></a></dt><dd class='price'><b>￥"+data[i].prodPrice+"/</b>天</dd> <dd>"+data[i].prodName+"</dd> <dd class='active'><a href='http://localhost:8081/blg-member/prodDetail?id="+data[i].id+"'>详细特征</a></dd></dl>";
 						if((i+1)%5==0) {
 							str1 = "</div><div>"
 						}

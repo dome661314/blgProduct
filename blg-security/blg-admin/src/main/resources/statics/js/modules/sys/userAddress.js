@@ -12,6 +12,11 @@ $(function () {
             { label: '县', name: 'county', index: 'county', width: 80 },
             { label: '邮政编码', name: 'postalCode', index: 'postal_code', width: 80 },
             { label: '详细地址', name: 'address', index: 'address', width: 80 },
+            { label: '是否默认', name: 'isDefault', width: 60, formatter: function(value, options, row){
+                    return value == 0 ?
+                        '<span class="label label-danger">是</span>' :
+                        '<span class="label label-success">否</span>';
+                }},
         ],
         viewrecords: true,
         height: 385,
@@ -40,8 +45,6 @@ $(function () {
     });
 });
 
-var userInfo;
-
 var vm = new Vue({
     el:'#rrapp',
     data:{
@@ -62,16 +65,6 @@ var vm = new Vue({
             vm.showList = false;
             vm.title = "新增";
             vm.userAddress = {userName:null,userId:null};
-            vm.getUserInfo();
-        },
-        getUserInfo: function(){
-            $.get(baseURL + "sys/user/list", function(r){
-                $.fn.init($("#userIframe"), setting, r);
-                alert(r);
-                userInfo = r.user;
-                vm.userAddress.userId = r.id;
-                vm.userAddress.userName = r.userName;
-            })
         },
         update: function (event) {
             var id = getSelectedRow();
@@ -128,21 +121,6 @@ var vm = new Vue({
         getInfo: function(id){
             $.get(baseURL + "sys/userAddress/info/"+id, function(r){
                 vm.userAddress = r.userAddress;
-            });
-        },
-        userIframe: function(){
-            layer.open({
-                type: 2,
-                offset: '50px',
-                title: "选择用户",
-                shadeClose: false,
-                content: jQuery("#userLayer"),
-                btn: ['确定', '取消'],
-                btn1: function (index) {
-                    vm.userAddress.userId = userInfo[0].userId;
-                    vm.userAddress.userName = userInfo[0].userName;
-                    layer.close(index);
-                }
             });
         },
         reload: function (event) {

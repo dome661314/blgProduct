@@ -1,21 +1,26 @@
 package io.blg.modules.prod.controller;
 
 import io.blg.common.annotation.SysLog;
+import io.blg.common.exception.RRException;
 import io.blg.common.utils.PageUtils;
 import io.blg.common.utils.R;
 import io.blg.common.validator.ValidatorUtils;
+import io.blg.modules.oss.cloud.OSSFactory;
+import io.blg.modules.oss.entity.SysOssEntity;
 import io.blg.modules.prod.entity.ProductEntity;
 import io.blg.modules.prod.service.ProductService;
 import io.blg.modules.sys.controller.AbstractController;
+import org.apache.commons.io.IOUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -31,6 +36,10 @@ public class ProductController extends AbstractController {
 
     @Autowired
     private ProductService productService;
+
+    private final static String IMG_PATH="/Users/dome/Documents/zw/lunwen/blgProduct/blg-security/blg_member/src/main/resources/statics/images";
+
+    private final static String URL="http://localhost:8081/blg-member/statics/images";
 
 
     /**
@@ -57,8 +66,8 @@ public class ProductController extends AbstractController {
      */
     @RequestMapping("/list")
     @RequiresPermissions("blg:prod:list")
-    public R list() {
-        PageUtils page = productService.queryPage(new HashMap<>());
+    public R list(@RequestParam Map<String, Object> params) {
+        PageUtils page = productService.queryPage(params);
         return R.ok().put("page", page);
     }
 
@@ -103,5 +112,22 @@ public class ProductController extends AbstractController {
         return R.ok().put("prod", prod);
     }
 
+
+    @ResponseBody
+    @RequestMapping("/upload")
+    public R upload(@RequestParam("file") MultipartFile file) throws Exception {
+        if (file.isEmpty()) {
+            throw new RRException("上传文件不能为空");
+        }
+        File dir = new File(IMG_PATH);
+        if(!dir.exists()){
+            dir.mkdir();
+        }
+        String path =dir+"/"+file.getOriginalFilename();
+        file.transferTo(new File(path));
+        //返回访问路径
+        String url = URL + "/" +file.getOriginalFilename();
+        return R.ok().put("url", url);
+    }
 
 }

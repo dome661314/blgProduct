@@ -46,4 +46,6 @@ public class UserAddressEntity {
     private String updateName;
 
     private Date updateDate;
+
+    private String isDefault;
 }

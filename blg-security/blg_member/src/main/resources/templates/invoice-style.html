@@ -13,7 +13,7 @@
     <script type="text/javascript">
         $(function() {
             $("#top").load("head.html");
-            if('${userAddr}'!=null){
+            if('${userAddr.receiveName}'!=null){
                 var divA = document.getElementById("addrShow");
                 var str = "<dd><p class='clearfix'>${userAddr.receiveName}&nbsp;${userAddr.receiveMobile}</p> <p class='clearfix'><span  class='left wid575'>${userAddr.province}&nbsp;${userAddr.city}&nbsp;${userAddr.county}&nbsp;${userAddr.address}</span></p></dd>";
                 divA.innerHTML=divA.innerHTML+str;

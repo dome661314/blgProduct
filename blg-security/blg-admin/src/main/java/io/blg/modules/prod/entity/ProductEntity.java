@@ -68,9 +68,9 @@ public class ProductEntity {
 
     private String prodPlace;
 
-    private String prod_condition;
+    private String prodCondition;
 
-
+    private String imagePath;
 
 
 
