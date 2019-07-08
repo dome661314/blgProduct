@@ -1,0 +1,19 @@
+# application name
+spring:
+  application:
+    name: duxing-service
+  # mysql jpa config
+  datasource:
+    url: jdbc:mysql://localhost:3306/blg_security?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: dome661314
+   
+# server monitor port
+server:
+  port: 8080
+
+# eureka server cluster
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
